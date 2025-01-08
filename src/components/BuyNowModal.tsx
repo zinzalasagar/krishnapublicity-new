@@ -3,7 +3,20 @@ import { motion } from "framer-motion";
 import { IoClose } from "react-icons/io5"; // Close icon for the modal
 import Modal from "./Modal"; // Your reusable modal component
 
-const BuyNowModal = ({ isOpen, onClose, onSubmit, selectedService }) => {
+interface BuyNowModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (formData: {
+    name: string;
+    contactNumber: string;
+    email: string;
+    gstin?: string;
+    productQuantity: string;
+    address?: string;
+    remark?: string;
+  }) => Promise<void>;
+}
+const BuyNowModal: React.FC<BuyNowModalProps> = ({ isOpen, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
     name: "",
     contactNumber: "",
@@ -15,22 +28,20 @@ const BuyNowModal = ({ isOpen, onClose, onSubmit, selectedService }) => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState({}); // Validation errors
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   // Form validation
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: { [key: string]: string } = {};
     if (!formData.name) newErrors.name = "Name is required";
-    if (!formData.contactNumber)
-      newErrors.contactNumber = "Contact Number is required";
+    if (!formData.contactNumber) newErrors.contactNumber = "Contact Number is required";
     if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.productQuantity)
-      newErrors.productQuantity = "Product Quantity is required";
+    if (!formData.productQuantity) newErrors.productQuantity = "Product Quantity is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 

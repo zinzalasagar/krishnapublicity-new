@@ -1,13 +1,11 @@
-// src/components/ui/Contact.tsx
-
- "use client"
+"use client";
 
 import React, { useState } from "react";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {

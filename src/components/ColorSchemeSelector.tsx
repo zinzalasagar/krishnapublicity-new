@@ -13,7 +13,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 export function ColorSchemeSelector() {
-    const { colorScheme, setColorScheme, colorSchemes, addColorScheme } = useTheme()
+    const {  setColorScheme, colorSchemes, addColorScheme } = useTheme()
     const [newScheme, setNewScheme] = useState({
         name: '',
         primary: '#0089c1',

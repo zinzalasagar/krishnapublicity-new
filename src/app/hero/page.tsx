@@ -5,10 +5,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
-const heroVideos = [
+interface HeroVideo {
+  src: string;
+  title: string;
+  subtitle: string;
+}
+
+const heroVideos: HeroVideo[] = [
   {
     src: "/branndingImage/v1.mp4",
-  title: " WELCOME TO KRISHNA PUBLICITY",
+    title: "WELCOME TO KRISHNA PUBLICITY",
     subtitle: "Your Trusted Partner for Creative Advertising Solutions",
   },
   {
@@ -89,7 +95,9 @@ export default function Hero() {
             transition={{ duration: 1 }}
           >
             <video
-              ref={(el) => (videoRefs.current[index] = el)}
+              ref={(el) => {
+                videoRefs.current[index] = el;
+              }}
               className="absolute inset-0 w-full h-full object-cover"
               loop
               muted
@@ -132,20 +140,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            {/* <Button
-              size="lg"
-              variant="default"
-              className="bg-[#3982c3] hover:bg-[#2c6190] text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
-            >
-              Get Started
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#3982c3] px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
-            >
-              Learn More
-            </Button> */}
+            {/* Add your buttons here if needed */}
           </motion.div>
         </div>
       </div>
@@ -154,9 +149,8 @@ export default function Hero() {
         {heroVideos.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentVideo ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentVideo ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+              }`}
             onClick={() => {
               setCurrentVideo(index);
               if (intervalRef.current) clearInterval(intervalRef.current);

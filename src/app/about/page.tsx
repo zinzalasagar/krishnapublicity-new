@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, CheckCircle, Award, ChevronLeft, ChevronRight, ArrowRight, Zap } from 'lucide-react';
+import { Users, CheckCircle, Award, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -217,11 +217,11 @@ export default function About() {
                       transition={{ duration: 0.3 }}
                       className="text-center"
                     >
-                      <img
+                      {/* <img
                         src={teamMembers[currentMember].image}
                         alt={teamMembers[currentMember].name}
                         className="w-48 h-48 rounded-full mx-auto mb-4 border-4 border-[#3982c3] transition-transform duration-300 hover:scale-105"
-                      />
+                      /> */}
                       <h3 className="text-xl font-semibold text-[#3982c3]">
                         {teamMembers[currentMember].name}
                       </h3>
@@ -257,7 +257,7 @@ export default function About() {
               <CardHeader>
                 <CardTitle className="text-[#3982c3] text-2xl">Our Milestones</CardTitle>
                 <CardDescription className="text-[#1e4060]">
-                  Key moments in our company's history
+                  Key moments in our company history
                 </CardDescription>
               </CardHeader>
               <CardContent>

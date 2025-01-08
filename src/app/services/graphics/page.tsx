@@ -8,7 +8,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,7 +19,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Search, ArrowRight, ArrowLeft } from "lucide-react";
 
-const graphicsTypes = [
+type GraphicsType = {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+};
+
+const graphicsTypes: GraphicsType[] = [
   {
     id: "board-banner",
     name: "Board Banner",
@@ -114,10 +120,9 @@ const graphicsTypes = [
 ];
 
 export default function GraphicsPage() {
-  const router = useRouter();
   const [filter, setFilter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const [hoveredType, setHoveredType] = useState(null);
+  const [hoveredType, setHoveredType] = useState<string | null>(null);
 
   const filteredGraphics = graphicsTypes.filter(
     (type) =>

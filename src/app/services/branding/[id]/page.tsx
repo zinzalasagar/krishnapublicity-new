@@ -8,7 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const brandingTypes = {
+interface BrandingType {
+  name: string;
+  images: string[];
+  description: string;
+}
+
+const brandingTypes: Record<string, BrandingType> = {
   "tricycle-ad": {
     name: "Tricycle Ad",
     images: ["/branndingImage/t2.jpg", "/branndingImage/t3.jpg", "/branndingImage/t4.jpg"],
@@ -111,7 +117,7 @@ export default function BrandingTypePage() {
   const params = useParams();
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [brandingType, setBrandingType] = useState(null);
+  const [brandingType, setBrandingType] = useState<BrandingType | null>(null);
 
   useEffect(() => {
     if (params.id && typeof params.id === "string") {
@@ -177,7 +183,7 @@ export default function BrandingTypePage() {
       >
         {brandingType.description}
       </motion.p>
-      <div className="relative flex  items-center justify-center">
+      <div className="relative flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
@@ -215,9 +221,8 @@ export default function BrandingTypePage() {
         {brandingType.images.map((_, index) => (
           <motion.button
             key={index}
-            className={`h-3 w-3 rounded-full mx-1 ${
-              index === currentImageIndex ? "bg-white" : "bg-[#2c6190]"
-            }`}
+            className={`h-3 w-3 rounded-full mx-1 ${index === currentImageIndex ? "bg-white" : "bg-[#2c6190]"
+              }`}
             onClick={() => setCurrentImageIndex(index)}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}

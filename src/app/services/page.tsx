@@ -26,7 +26,7 @@ import {
   PenTool,
   ChevronUp,
   Layout,
-  ArrowRight,
+  
 } from "lucide-react";
 import Image from "next/image";
 
@@ -90,7 +90,6 @@ export default function Services() {
   const router = useRouter();
   const [hoveredService, setHoveredService] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,12 +99,6 @@ export default function Services() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % services.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section

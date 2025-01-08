@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -15,7 +15,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const cityHoardings = {
+interface Hoarding {
+  id: string;
+  title: string;
+  image: string;
+  description: string;
+  currentPrice: number;
+  previousPrice: number;
+}
+
+interface CityData {
+  name: string;
+  hoardings: Hoarding[];
+}
+
+const cityHoardings: Record<string, CityData> = {
   bhavnagar: {
     name: "Bhavnagar",
     hoardings: [
@@ -100,12 +114,12 @@ const cityHoardings = {
 export default function CityHoardingsPage() {
   const params = useParams();
   const router = useRouter();
-  const [city, setCity] = useState<any>(null);
-  const [selectedHoarding, setSelectedHoarding] = useState<any>(null);
+  const [city, setCity] = useState<CityData | null>(null);
+  const [selectedHoarding, setSelectedHoarding] = useState<Hoarding | null>(null);
 
   useEffect(() => {
     if (params.id && typeof params.id === "string") {
-      const cityData = cityHoardings[params.id as keyof typeof cityHoardings];
+      const cityData = cityHoardings[params.id];
       if (cityData) {
         setCity(cityData);
       }
@@ -154,7 +168,7 @@ export default function CityHoardingsPage() {
         Explore our premium hoarding locations in {city.name}.
       </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {city.hoardings.map((hoarding: any) => (
+        {city.hoardings.map((hoarding: Hoarding) => (
           <motion.div
             key={hoarding.id}
             whileHover={{ scale: 1.05 }}

@@ -2,14 +2,20 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Fragment } from "react";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import LogoSlider from "@/components/LogoSlider";
 
-const images = [
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+const images: GalleryImage[] = [
   { src: "/gallery/First1.webp", alt: "Billboard Advertisement" },
   { src: "/gallery/g1.jpeg", alt: "Print Media Campaign" },
   { src: "/gallery/g2.png", alt: "Digital Marketing" },
@@ -21,10 +27,10 @@ const images = [
 
 export default function Gallery() {
   const router = useRouter();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const openLightbox = (image, index) => {
+  const openLightbox = (image: GalleryImage, index: number) => {
     setSelectedImage(image);
     setCurrentImageIndex(index);
   };
@@ -91,52 +97,69 @@ export default function Gallery() {
       </div>
 
       {/* Lightbox Modal */}
-      <Dialog open={!!selectedImage} onClose={closeLightbox} className="fixed z-10 inset-0 overflow-y-auto">
-        <div className="flex items-center justify-center min-h-screen">
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-75" />
-          <div className="relative bg-white rounded-lg max-w-3xl mx-auto">
-            <button
-              onClick={closeLightbox}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+      <Transition show={!!selectedImage} as={Fragment}>
+        <Dialog onClose={closeLightbox} className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="flex items-center justify-center min-h-screen">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
             >
-              <FiX className="w-6 h-6" />
-            </button>
-            {selectedImage && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="p-4"
-              >
-                <Image
-                  src={selectedImage.src}
-                  alt={selectedImage.alt}
-                  width={800}
-                  height={600}
-                  objectFit="contain"
-                  className="rounded-lg"
-                />
-                <p className="text-center mt-4 text-lg font-semibold">{selectedImage.alt}</p>
-                <div className="flex justify-between mt-4">
-                  <Button
-                    onClick={prevImage}
-                    className="bg-[#3982c3] text-white px-4 py-2 rounded-lg hover:bg-[#2c6190] transition-colors"
-                  >
-                    <FiChevronLeft className="w-6 h-6" />
-                  </Button>
-                  <Button
-                    onClick={nextImage}
-                    className="bg-[#3982c3] text-white px-4 py-2 rounded-lg hover:bg-[#2c6190] transition-colors"
-                  >
-                    <FiChevronRight className="w-6 h-6" />
-                  </Button>
-                </div>
-              </motion.div>
-            )}
+              {/* <Dialog.Overlay className="fixed inset-0 bg-black opacity-75" /> */}
+            </Transition.Child>
+
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="relative bg-white rounded-lg max-w-3xl mx-auto">
+                <button
+                  onClick={closeLightbox}
+                  className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                >
+                  <FiX className="w-6 h-6" />
+                </button>
+                {selectedImage && (
+                  <div className="p-4">
+                    <Image
+                      src={selectedImage.src}
+                      alt={selectedImage.alt}
+                      width={800}
+                      height={600}
+                      objectFit="contain"
+                      className="rounded-lg"
+                    />
+                    <p className="text-center mt-4 text-lg font-semibold">{selectedImage.alt}</p>
+                    <div className="flex justify-between mt-4">
+                      <Button
+                        onClick={prevImage}
+                        className="bg-[#3982c3] text-white px-4 py-2 rounded-lg hover:bg-[#2c6190] transition-colors"
+                      >
+                        <FiChevronLeft className="w-6 h-6" />
+                      </Button>
+                      <Button
+                        onClick={nextImage}
+                        className="bg-[#3982c3] text-white px-4 py-2 rounded-lg hover:bg-[#2c6190] transition-colors"
+                      >
+                        <FiChevronRight className="w-6 h-6" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </Transition.Child>
           </div>
-        </div>
-      </Dialog>
+        </Dialog>
+      </Transition>
     </section>
   );
 }

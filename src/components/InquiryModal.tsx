@@ -1,11 +1,21 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // For smooth animations
+import { motion } from "framer-motion";
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
 
 interface InquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (data: any) => Promise<void>;
-  selectedService: any;
+  onSubmit: (data: FormData) => Promise<void>;
+  selectedService: {
+    title: string;
+    [key: string]: unknown;
+  };
 }
 
 const InquiryModal: React.FC<InquiryModalProps> = ({
@@ -14,7 +24,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   onSubmit,
   selectedService,
 }) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
@@ -22,7 +32,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
   });
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,7 +44,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
     if (value.trim() === "") {
       setErrors({ ...errors, [name]: `${name} is required.` });
     } else {
-      setErrors({ ...errors, [name]: null });
+      setErrors({ ...errors, [name]: undefined });
     }
   };
 
@@ -43,7 +53,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
     setLoading(true);
     setErrors({});
 
-    const newErrors: any = {};
+    const newErrors: Partial<Record<keyof FormData, string>> = {};
     if (!formData.name) newErrors.name = "Name is required.";
     if (!formData.email) newErrors.email = "Email is required.";
     if (!formData.phone) newErrors.phone = "Phone is required.";
@@ -61,6 +71,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       setSuccessMessage("Failed to submit inquiry.");
+      console.error("Error submitting inquiry:", error);
     } finally {
       setLoading(false);
     }
@@ -82,7 +93,7 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
         className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md transition-transform"
       >
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-4 animate-pulse">
-          Inquiry for {selectedService?.title}
+          Inquiry for {selectedService.title}
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">
@@ -92,9 +103,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${
-                errors.name ? "border-red-500" : ""
-              }`}
+              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${errors.name ? "border-red-500" : ""
+                }`}
               placeholder="Enter your name"
               required
             />
@@ -115,9 +125,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${
-                errors.email ? "border-red-500" : ""
-              }`}
+              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${errors.email ? "border-red-500" : ""
+                }`}
               placeholder="Enter your email"
               required
             />
@@ -138,9 +147,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${
-                errors.phone ? "border-red-500" : ""
-              }`}
+              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${errors.phone ? "border-red-500" : ""
+                }`}
               placeholder="Enter your phone number"
               required
             />
@@ -160,9 +168,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${
-                errors.message ? "border-red-500" : ""
-              }`}
+              className={`w-full border-2 border-gray-200 rounded-lg px-4 py-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300 ${errors.message ? "border-red-500" : ""
+                }`}
               rows={4}
               placeholder="Enter your message"
               required
@@ -187,9 +194,8 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
             </button>
             <button
               type="submit"
-              className={`bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-transform transform hover:scale-105 ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-transform transform hover:scale-105 ${loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               disabled={loading}
             >
               {loading ? "Submitting..." : "Submit Inquiry"}
@@ -211,3 +217,4 @@ const InquiryModal: React.FC<InquiryModalProps> = ({
 };
 
 export default InquiryModal;
+

@@ -4,9 +4,8 @@ import React, { useState, useEffect } from "react"
 import { Link as ScrollLink } from "react-scroll"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Info, ImageIcon, Phone, Briefcase, Search, Menu, X, Sun, Moon, ChevronDown } from 'lucide-react'
+import {  Search, Menu, X, Sun, Moon, } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
@@ -25,7 +24,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -54,7 +52,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
   const toggleMenu = () => setIsOpen(!isOpen)
 
   const toggleTheme = () => {
@@ -92,7 +89,7 @@ export default function Navbar() {
           </motion.div>
 
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map(({ section, label, icon }, index) => (
+            {navItems.map(({ section, label }, index) => (
               <motion.div
                 key={section}
                 initial={{ opacity: 0, y: -20 }}
@@ -108,7 +105,6 @@ export default function Navbar() {
                       : `text-white hover:bg-primary-foreground/10 hover:scale-105`
                     }`}
                 >
-                  <span>{icon}</span>
                   <span>{label}</span>
                 </ScrollLink>
               </motion.div>
@@ -241,7 +237,7 @@ export default function Navbar() {
             className="md:hidden bg-background/95 backdrop-blur-md overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
-              {navItems.map(({ section, label, icon }, index) => (
+              {navItems.map(({ section, label }, index) => (
                 <motion.div
                   key={section}
                   initial={{ opacity: 0, x: -20 }}
@@ -261,7 +257,6 @@ export default function Navbar() {
                       setActiveSection(section);
                     }}
                   >
-                    <span>{icon}</span>
                     <span>{label}</span>
                   </ScrollLink>
                 </motion.div>
@@ -274,7 +269,6 @@ export default function Navbar() {
                 <Button
                   variant="outline"
                   onClick={() => {
-                    setIsSearchOpen(true);
                     toggleMenu();
                   }}
                   className="w-full justify-start text-foreground border-accent hover:bg-secondary hover:text-white"

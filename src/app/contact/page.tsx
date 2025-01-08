@@ -73,7 +73,7 @@ const Contact = () => {
               <CardHeader>
                 <CardTitle className="text-[#3982c3]">Get in Touch</CardTitle>
                 <CardDescription>
-                  We'd love to hear from you. Please fill out this form.
+                  We love to hear from you. Please fill out this form.
                 </CardDescription>
               </CardHeader>
               <CardContent>

@@ -18,7 +18,7 @@ const images = [
 ];
 
 export default function ImageSlider() {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const settings = {
@@ -31,7 +31,7 @@ export default function ImageSlider() {
         autoplaySpeed: 3000,
     };
 
-    const openLightbox = (image, index) => {
+    const openLightbox = (image: { src: string; alt: string }, index: number) => {
         setSelectedImage(image);
         setCurrentImageIndex(index);
     };
@@ -75,7 +75,8 @@ export default function ImageSlider() {
             {/* Lightbox Modal */}
             <Dialog open={!!selectedImage} onClose={closeLightbox} className="fixed z-10 inset-0 overflow-y-auto">
                 <div className="flex items-center justify-center min-h-screen">
-                    <Dialog.Overlay className="fixed inset-0 bg-black opacity-75" />
+                    {/* Custom Overlay */}
+                    <div className="fixed inset-0 bg-black bg-opacity-75" onClick={closeLightbox}></div>
                     <div className="relative bg-white rounded-lg max-w-3xl mx-auto">
                         <button
                             onClick={closeLightbox}
@@ -122,4 +123,3 @@ export default function ImageSlider() {
         </div>
     );
 }
-

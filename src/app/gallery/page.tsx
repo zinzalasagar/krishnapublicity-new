@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import ImageSlider from "@/components/ImageSlider";
 import LogoSlider from "@/components/LogoSlider";
 
 export default function Gallery() {

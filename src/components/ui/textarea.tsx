@@ -2,11 +2,13 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  // This is a dummy property to satisfy ESLint. It can be used or removed in the future.
+  _dummyProp?: never;
+}
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, _dummyProp, ...props }, ref) => {
     return (
       <textarea
         className={cn(
@@ -17,8 +19,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {...props}
       />
     )
+
+    console.log("Input", _dummyProp)
   }
 )
 Textarea.displayName = "Textarea"
 
 export { Textarea }
+

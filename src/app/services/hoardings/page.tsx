@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,7 +15,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Search, ArrowRight, ArrowLeft } from 'lucide-react';
 
-const cities = [
+type CitiesType = {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+};
+
+const cities: CitiesType[] = [
   {
     id: "bhavnagar",
     name: "Bhavnagar",
@@ -38,7 +44,6 @@ const cities = [
 ];
 
 export default function HoardingsPage() {
-  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
 
@@ -51,7 +56,7 @@ export default function HoardingsPage() {
   return (
     <section className="py-16 bg-gradient-to-b from-[#3982c3] to-[#1e4060] min-h-screen">
       <div className="container mx-auto px-4">
-        <Link href="/services">
+        <Link href="/">
           <Button
             variant="outline"
             className="mb-8 bg-white text-[#3982c3] hover:bg-[#3982c3] hover:text-white"
