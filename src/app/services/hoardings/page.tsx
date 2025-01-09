@@ -56,14 +56,17 @@ export default function HoardingsPage() {
   return (
     <section className="py-16 bg-gradient-to-b from-[#3982c3] to-[#1e4060] min-h-screen">
       <div className="container mx-auto px-4">
-        <Link href="/">
-          <Button
-            variant="outline"
-            className="mb-8 bg-white text-[#3982c3] hover:bg-[#3982c3] hover:text-white"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
-          </Button>
-        </Link>
+        <div className="mb-8">
+          <Link href="/">
+            <Button
+              variant="outline"
+              className="bg-white text-[#3982c3] hover:bg-[#3982c3] hover:text-white"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
+            </Button>
+          </Link>
+        </div>
+
         <motion.h1
           className="text-5xl font-bold text-center mb-12 text-white"
           initial={{ opacity: 0, y: -50 }}
@@ -96,6 +99,8 @@ export default function HoardingsPage() {
             </div>
           </div>
         </div>
+
+       
 
         <AnimatePresence>
           <motion.div
@@ -132,8 +137,6 @@ export default function HoardingsPage() {
                         <Image
                           src={city.image}
                           alt={city.name}
-                          // width={300}
-                          // height={200}
                           layout="fill"
                           objectFit="cover"
                           className="transition-transform duration-300 ease-in-out transform hover:scale-110"
@@ -149,9 +152,7 @@ export default function HoardingsPage() {
                           </motion.div>
                         )}
                       </div>
-                      <p className="text-sm text-gray-900">
-                        {city.description}
-                      </p>
+                      <p className="text-sm text-gray-900">{city.description}</p>
                     </CardContent>
                     <CardFooter className="flex justify-center">
                       <Button className="bg-[#3982c3] text-white hover:bg-[#2c6190]">
@@ -164,8 +165,18 @@ export default function HoardingsPage() {
             ))}
           </motion.div>
         </AnimatePresence>
+
+        <div className="flex justify-center mt-12">
+          <Link href="/services/hoardings/all">
+            <Button
+              className="bg-white text-black hover:bg-[#3982c3] hover:text-white px-8 py-6 text-lg"
+              size="lg"
+            >
+              View All Hoardings
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
-

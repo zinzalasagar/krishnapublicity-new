@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface HeroVideo {
   src: string;
@@ -109,7 +110,7 @@ export default function Hero() {
           </motion.div>
         ))}
       </AnimatePresence>
-
+      
       <div className="absolute inset-0 bg-gradient-to-r from-[#3982c3] via-[#2c6190] to-[#1e4060] opacity-50" />
 
       <div className="absolute inset-0 flex items-center justify-center">
@@ -140,12 +141,21 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
+           
             {/* Add your buttons here if needed */}
           </motion.div>
         </div>
       </div>
-
+     
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-20 bottom-4 text-white hover:text-[#3982c3] transition-colors duration-300"
+          onClick={() => window.open('https://wa.me/message/CCJKOAWCDVX4D1', '_blank')}
+        >
+          <FaWhatsapp className="h-26 w-26" />
+        </Button>
         {heroVideos.map((_, index) => (
           <button
             key={index}
@@ -163,16 +173,16 @@ export default function Hero() {
       <Button
         variant="outline"
         size="icon"
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#3982c3]/30 text-white border-white/50 hover:bg-white hover:text-[#3982c3] transition-all duration-300"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#3982c3]/30 text-blue-400 border-white/50 hover:bg-white hover:text-[#3982c3] transition-all duration-300"
         onClick={() => handleVideoChange('prev')}
       >
         <ChevronLeft className="w-6 h-6" />
       </Button>
-
+  
       <Button
         variant="outline"
         size="icon"
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#3982c3]/30 text-white border-white/50 hover:bg-white hover:text-[#3982c3] transition-all duration-300"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#3982c3]/30 text-blue-400 border-white/50 hover:bg-white hover:text-[#3982c3] transition-all duration-300"
         onClick={() => handleVideoChange('next')}
       >
         <ChevronRight className="w-6 h-6" />

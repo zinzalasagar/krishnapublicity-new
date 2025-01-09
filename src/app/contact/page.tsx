@@ -135,7 +135,7 @@ const Contact = () => {
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <FiMail className="text-[#3982c3] w-6 h-6" />
-                  <span>contact@krishnapublicity.com</span>
+                  <span>krishnapublicity2016@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4">
                   <FiPhone className="text-[#3982c3] w-6 h-6" />
@@ -166,11 +166,11 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-      <div className="text-center mt-8">
+      {/* <div className="text-center mt-8">
         <Link href="/">
           <Button variant="outline">Back to Home</Button>
         </Link>
-      </div>
+      </div> */}
     </section>
   );
 };

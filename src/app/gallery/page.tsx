@@ -9,9 +9,9 @@ export default function Gallery() {
     <section id="gallery" className="py-16 bg-gradient-to-r from-primary via-primary-dark to-primary-darker">
       <div className="container mx-auto px-4">
         {/* <h2 className="text-4xl font-bold mb-8 text-center text-white">Gallery</h2> */}
-        <Link href="/">
+        {/* <Link href="/">
           <Button variant="outline" className="mb-8">Back to Home</Button>
-        </Link>
+        </Link> */}
 
         {/* Logo Slider */}
         <div className="mt-16">

@@ -42,10 +42,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: FiFacebook, href: "https://facebook.com/krishnapublicity" },
-    { icon: FiTwitter, href: "https://twitter.com/krishnapublicity" },
-    { icon: FiInstagram, href: "https://instagram.com/krishnapublicity" },
-    { icon: FiLinkedin, href: "https://linkedin.com/company/krishnapublicity" },
+    { icon: FiFacebook, href: "https://www.facebook.com/krishna.pubgps?mibextid=ZbWKwL" },
+    { icon: FiTwitter, href: "https://twitter.com/Mrsanju_krishna/status/1637096196224294914?t=kmgRLJjh4nqbhyaGgYvcVA&s=19" },
+    { icon: FiInstagram, href: "https://instagram.com/krishnapublicity_surat?igshid=ZDc4ODBmNjlmNQ==" },
+    // { icon: FiLinkedin, href: "https://linkedin.com/company/krishnapublicity" },
     { icon: FiYoutube, href: "https://youtube.com/krishnapublicity" },
   ];
 
