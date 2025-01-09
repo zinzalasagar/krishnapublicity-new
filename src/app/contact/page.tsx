@@ -3,7 +3,6 @@
 
 "use client"
 import React, { useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiMail, FiPhone, FiMapPin, FiSend, FiLoader } from "react-icons/fi";
 import { Button } from "@/components/ui/button";

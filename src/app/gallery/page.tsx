@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import LogoSlider from "@/components/LogoSlider";
 
 export default function Gallery() {

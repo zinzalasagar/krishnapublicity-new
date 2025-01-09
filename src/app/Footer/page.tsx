@@ -6,7 +6,6 @@ import {
   FiFacebook,
   FiTwitter,
   FiInstagram,
-  FiLinkedin,
   FiArrowUp,
   FiMail,
   FiMapPin,
