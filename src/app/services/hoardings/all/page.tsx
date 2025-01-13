@@ -5,64 +5,85 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, MapPin } from 'lucide-react';
 
 type HoardingImage = {
     id: string;
     src: string;
     location: string;
+    mapLink: string;
 };
 
 const allHoardings: HoardingImage[] = [
     {
         id: "bhavnagar1",
         src: "/hordingimage/bhavnagar1.jpg?height=400&width=600&text=Bhavnagar-1",
-        location: "Bhavnagar Central"
+        location: "Bhavnagar Central",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "bhavnagar2",
         src: "/hordingimage/bhavnagar2.jpg?height=400&width=600&text=Bhavnagar-2",
-        location: "Bhavnagar Highway"
+        location: "Bhavnagar Highway",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "bhavnagar4",
         src: "/hordingimage/b2.jpg?height=400&width=600&text=Bhavnagar-2",
-        location: "Bhavnagar Highway"
+        location: "Bhavnagar Highway",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "bhavnagar3",
         src: "/hordingimage/b5.jpg?height=400&width=600&text=Bhavnagar-3",
-        location: "Bhavnagar Market"
+        location: "Bhavnagar Market",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "surat1",
         src: "/hordingimage/s1.jpg?height=400&width=600&text=Surat-1",
-        location: "Surat Ring Road"
+        location: "Surat Ring Road",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "surat2",
         src: "/hordingimage/s2.jpg?height=400&width=600&text=Surat-2",
-        location: "Surat Station"
+        location: "Surat Station",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "surat3",
         src: "/hordingimage/s3.jpg?height=400&width=600&text=Surat-3",
-        location: "Surat Mall"
+        location: "Surat Mall",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "surat4",
         src: "/hordingimage/s4.jpg?height=400&width=600&text=Surat-3",
-        location: "Surat Mall"
+        location: "Surat Mall",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "ahmedabad1",
         src: "/hordingimage/a1.jpg?height=400&width=600&text=Ahmedabad-1",
-        location: "Ahmedabad SG Highway"
+        location: "Ahmedabad SG Highway",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
     {
         id: "ahmedabad2",
         src: "/hordingimage/a2.jpg?height=400&width=600&text=Ahmedabad-2",
-        location: "Ahmedabad Airport Road"
+        location: "Ahmedabad Airport Road",
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+
     },
 ];
 
@@ -145,6 +166,15 @@ export default function AllHoardingsPage() {
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
+                                    <a
+                                        href={hoarding.mapLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md transition-transform duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#3982c3] focus:ring-opacity-50"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <MapPin className="h-6 w-6 text-[#3982c3]" />
+                                    </a>
                                 </div>
                                 <h3 className="text-xl font-bold text-center text-gray-500 mb-2">
                                     {hoarding.location}

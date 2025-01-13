@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, MapPin } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -22,6 +22,7 @@ interface Hoarding {
   description: string;
   currentPrice: number;
   previousPrice: number;
+  mapLink: string;
 }
 
 interface CityData {
@@ -40,6 +41,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "Prime location in the heart of Bhavnagar",
         currentPrice: 50000,
         previousPrice: 45000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
       {
         id: "bhavnagar-2",
@@ -48,6 +50,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "High visibility spot at the city entrance",
         currentPrice: 40000,
         previousPrice: 38000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
       {
         id: "bhavnagar-3",
@@ -56,6 +59,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "High visibility spot at the city entrance",
         currentPrice: 40000,
         previousPrice: 38000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
     ],
   },
@@ -69,6 +73,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "Located near the famous diamond market",
         currentPrice: 60000,
         previousPrice: 55000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
       {
         id: "surat-2",
@@ -77,6 +82,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "Popular tourist route with high traffic",
         currentPrice: 55000,
         previousPrice: 50000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
       {
         id: "surat-3",
@@ -85,6 +91,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "Popular tourist route with high traffic",
         currentPrice: 55000,
         previousPrice: 50000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
     ],
   },
@@ -98,6 +105,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "Premium spot on the busiest highway",
         currentPrice: 75000,
         previousPrice: 70000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
       {
         id: "ahmedabad-2",
@@ -106,6 +114,7 @@ const cityHoardings: Record<string, CityData> = {
         description: "Scenic location with high footfall",
         currentPrice: 65000,
         previousPrice: 60000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
     ],
   },
@@ -188,6 +197,15 @@ export default function CityHoardingsPage() {
                     layout="fill"
                     objectFit="cover"
                   />
+                  <a
+                    href={hoarding.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md transition-transform duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#3982c3] focus:ring-opacity-50"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <MapPin className="h-6 w-6 text-[#3982c3]" />
+                  </a>
                 </div>
                 <p className="text-sm text-gray-500 mb-2">{hoarding.description}</p>
                 <p className="text-sm text-gray-500 font-bold">

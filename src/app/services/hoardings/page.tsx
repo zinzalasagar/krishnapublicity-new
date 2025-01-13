@@ -168,10 +168,7 @@ export default function HoardingsPage() {
 
         <div className="flex justify-center mt-12">
           <Link href="/services/hoardings/all">
-            <Button
-              className="bg-white text-black hover:bg-[#3982c3] hover:text-white px-8 py-6 text-lg"
-              size="lg"
-            >
+            <Button className="bg-[#3982c3] text-white hover:bg-[#2c6190]">
               View All Hoardings
             </Button>
           </Link>
