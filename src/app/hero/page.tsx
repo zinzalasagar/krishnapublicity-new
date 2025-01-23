@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import Image from 'next/image';
 
 interface HeroVideo {
   src: string;
@@ -110,7 +111,7 @@ export default function Hero() {
         ))}
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#3982c3] via-[#2c6190] to-[#1e4060] opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#b1d4f3] via-[#2c6190] to-[#1e4060] opacity-50" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center z-10 max-w-4xl px-4">
@@ -214,10 +215,15 @@ export default function Hero() {
         className="absolute left-4 bottom-20 text-white hover:text-[#3982c3] transition-colors duration-300"
         onClick={() => window.open('https://wa.me/message/CCJKOAWCDVX4D1', '_blank')}
       >
-        <img src="/whatsapp.png" alt="" />
+        <Image
+          src="/whatsapp.png"
+          alt="WhatsApp"
+          width={32}
+          height={32}
+        />
       </Button>
 
-      <div className="absolute top-0 left-0 w-full h-1 bg-[rgb(30,64,96)]">
+      <div className="absolute top-0 left-0 w-full h-1 bg-[#1e4060]">
         <motion.div
           className="h-full bg-[#3982c3]"
           initial={{ width: "0%" }}
