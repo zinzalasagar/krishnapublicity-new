@@ -45,7 +45,7 @@ const Footer = () => {
     { icon: FiTwitter, href: "https://twitter.com/Mrsanju_krishna/status/1637096196224294914?t=kmgRLJjh4nqbhyaGgYvcVA&s=19" },
     { icon: FiInstagram, href: "https://instagram.com/krishnapublicity_surat?igshid=ZDc4ODBmNjlmNQ==" },
     // { icon: FiLinkedin, href: "https://linkedin.com/company/krishnapublicity" },
-    { icon: FiYoutube, href: "https://youtube.com/krishnapublicity" },
+    // { icon: FiYoutube, href: "https://youtube.com/krishnapublicity" },
   ];
 
   const quickLinks = [
@@ -71,7 +71,7 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <Image src="/logo.jpg" alt="Krishna Publicity" width={150} height={50} />
+            <Image src="/logos/krishnalogo.png" alt="Krishna Publicity" width={150} height={50} />
             <p className="text-sm leading-relaxed">
               Your Trusted Partner for Creative Advertising Solutions. We bring your vision to life with innovative marketing strategies.
             </p>

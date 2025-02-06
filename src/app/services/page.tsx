@@ -191,6 +191,7 @@ export default function Services() {
                 onHoverStart={() => setHoveredService(service.id)}
                 onHoverEnd={() => setHoveredService(null)}
                 className="cursor-pointer"
+                onClick={() => router.push(`/services/${service.id}`)}
               >
                 <Card className="h-full flex flex-col justify-between overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
                   <CardHeader>
@@ -232,7 +233,7 @@ export default function Services() {
                     </Button>
                     <TooltipProvider>
                       <Tooltip>
-                        <TooltipTrigger asChild>
+                        {/* <TooltipTrigger asChild>
                           <Badge
                             variant="outline"
                             className="cursor-help border-[#3982c3] text-[#3982c3]"
@@ -242,7 +243,7 @@ export default function Services() {
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Check out our latest offerings!</p>
-                        </TooltipContent>
+                        </TooltipContent> */}
                       </Tooltip>
                     </TooltipProvider>
                   </CardFooter>

@@ -66,8 +66,8 @@ export default function Navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
-          ? `bg-primary shadow-lg backdrop-blur-md`
-          : "bg-transparent"
+          ? `bg-primary shadow-lg backdrop-blur-md rounded-xl`
+          : "bg-transparent rounded-xl"
         }`}
     >
       <div className="container mx-auto px-4 py-3">
@@ -79,7 +79,7 @@ export default function Navbar() {
           >
             <ScrollLink to="home" smooth={true} duration={500}>
               <Image
-                src="/logo.jpg"
+                src="/logos/krishnalogo.png"
                 alt="Krishna Publicity"
                 width={125}
                 height={50}
@@ -100,7 +100,7 @@ export default function Navbar() {
                   to={section}
                   smooth={true}
                   duration={500}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-md transition-all duration-300 ${activeSection === section
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-2xl transition-all duration-300 ${activeSection === section
                       ? `bg-secondary text-white scale-105`
                       : `text-white hover:bg-primary-foreground/10 hover:scale-105`
                     }`}
@@ -162,13 +162,13 @@ export default function Navbar() {
                 )}
               </Button> */}
             {/* </motion.div>ion */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.8 }}
             >
               <ColorSchemeSelector />
-            </motion.div>
+            </motion.div> */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}

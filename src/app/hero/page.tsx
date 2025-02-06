@@ -20,12 +20,12 @@ const heroVideos: HeroVideo[] = [
   },
   {
     src: "/branndingImage/v1.mp4",
-    title: "Innovative Marketing Strategies",
-    subtitle: "Elevate Your Brand with Our Expertise",
+    title: "Advertising Agency in All Over Gujarat.",
+    subtitle: "Your Brand  With our outdoor billboard locations across all city of Gujarat.",
   },
   {
     src: "/branndingImage/v1.mp4",
-    title: "Cutting-Edge Design Solutions",
+    title: "BHAVNAGAR - SURAT - AHEMDABAD",
     subtitle: "Transform Your Vision into Reality",
   },
 ];
@@ -218,8 +218,8 @@ export default function Hero() {
         <Image
           src="/whatsapp.png"
           alt="WhatsApp"
-          width={32}
-          height={32}
+          width={52}
+          height={52} 
         />
       </Button>
 

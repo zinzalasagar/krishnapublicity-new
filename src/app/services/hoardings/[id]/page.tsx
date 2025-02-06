@@ -7,6 +7,8 @@ import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MapPin } from 'lucide-react';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 import {
   Card,
   CardContent,
@@ -36,30 +38,210 @@ const cityHoardings: Record<string, CityData> = {
     hoardings: [
       {
         id: "bhavnagar-1",
-        title: "City Center Billboard",
-        image: "/hordingimage/bhavnagar2.jpg?height=600&width=800&text=Bhavnagar+Hoarding+1",
-        description: "Prime location in the heart of Bhavnagar",
-        currentPrice: 50000,
-        previousPrice: 45000,
-        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+        title: "Bhavnagar",
+        image: "/hordingimage/Picture1.jpg?height=600&width=800&text=Bhavnagar+Hoarding+1",
+        description: " SBV- KA03-B’nagar- kobdi  NH- 8E Talaja To B’nagar-Costal Hwy.",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/HDyRAVBGrK1HCJsTA"
       },
       {
         id: "bhavnagar-2",
-        title: "Highway Entrance Hoarding",
-        image: "/hordingimage/b2.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
-        description: "High visibility spot at the city entrance",
-        currentPrice: 40000,
-        previousPrice: 38000,
-        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+        title: "Bhavnagar",
+        image: "/hordingimage/Picture2.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "B’nagar- kobdi  NH- 8E  bhavnagar  to Talaja  –Toll plaza -Costal Hwy.",
+        currentPrice: 18000,
+        previousPrice: 20000,
+        mapLink: "https://maps.app.goo.gl/HDyRAVBGrK1HCJsTA"
       },
       {
         id: "bhavnagar-3",
-        title: "Mahuva Hoarding",
-        image: "/hordingimage/b5.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
-        description: "High visibility spot at the city entrance",
-        currentPrice: 40000,
-        previousPrice: 38000,
-        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+        title: "Bhavnagar",
+        image: "/hordingimage/Picture3.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "B’nagar- Rajpara-khodiyar maa mandir main roed – bhavnagar to rajkot ",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/5hcewPYsDxH9LjTE6"
+      },
+      {
+        id: "bhavnagar-4",
+        title: "Bhavnagar",
+        image: "/hordingimage/Picture4.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "B’nagar- Rajpara-khodiyar maa mandir main roed – bhavnagar to rajkot  ",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/5hcewPYsDxH9LjTE6"
+      },
+      {
+        id: "bhavnagar-5",
+        title: "Mahuva",
+        image: "/hordingimage/Picture6.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Neswad Chokdi",  
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/ic1Nf8PH86eiXYvd7"
+      },
+      {
+        id: "bhavnagar-6",
+        title: "Mahuva",
+        image: "/hordingimage/Picture7.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Neswad Chokdi",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/ic1Nf8PH86eiXYvd7"
+      },
+      {
+        id: "bhavnagar-7",
+        title: "Mahuva",
+        image: "/hordingimage/Picture8.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Bhaguda chokdi",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/jajddgxXLFEMinjU7"
+      },
+      {
+        id: "bhavnagar-8",
+        title: "Mahuva",
+        image: "/hordingimage/Picture9.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Bhaguda chokdi – cng pump ",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/jajddgxXLFEMinjU7"
+      },
+      {
+        id: "bhavnagar-9",
+        title: "Mahuva",
+        image: "/hordingimage/Picture10.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Bhaguda chokdi – mahuva to bhavnagar Exway 08",
+        currentPrice: 18000,
+        previousPrice: 20000,
+        mapLink: "https://maps.app.goo.gl/jajddgxXLFEMinjU7"
+      },
+      {
+        id: "bhavnagar-10",
+        title: "Mahuva",
+        image: "/hordingimage/Picture11.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Bhaguda mogal maa tampl– parking ",
+        currentPrice: 8000,
+        previousPrice: 10000,
+        mapLink: "https://maps.app.goo.gl/ECJWgL77gYnYV8dq9"
+      },
+      {
+        id: "bhavnagar-11",
+        title: "Mahuva",
+        image: "/hordingimage/Picture12.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– Nr. New Pollice Station S T Rd",
+        currentPrice: 9000,
+        previousPrice: 11000,
+        mapLink: "https://maps.app.oo.gl/5hcewPYsDxH9LjTE6"
+      },
+      {
+        id: "bhavnagar-12",
+        title: "Mahuva",
+        image: "/hordingimage/Picture13.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– BAGDANA-bapasitaram tample   ",
+        currentPrice: 8000,
+        previousPrice: 10000,
+        mapLink: "https://maps.app.goo.gl/YbPNzWiWDpBtQtmq6"
+      },
+      {
+        id: "bhavnagar-13",
+        title: "Mahuva",
+        image: "/hordingimage/Picture14.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "SM C01-- Mahuva– BAGDANA-bapasitaram tample   ",
+        currentPrice: 8000,
+        previousPrice: 10000,
+        mapLink: "https://maps.app.goo.gl/YbPNzWiWDpBtQtmq6"
+      },
+      {
+        id: "bhavnagar-14",
+        title: "Talaja",
+        image: "/hordingimage/Picture15.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01-- Talaja – bhupatbhai gardan main road",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/QkeGS6rTvH2WUj8i7"
+      },
+      {
+        id: "bhavnagar-15",
+        title: "Talaja",
+        image: "/hordingimage/Picture16.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01-- Talaja – bhupatbhai gardan main road",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/QkeGS6rTvH2WUj8i7"
+      },
+      {
+        id: "bhavnagar-16",
+        title: "Talaja",
+        image: "/hordingimage/Picture17.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01-- Talaja opp krishna hotel –City entry –Bhavnagar highway 08",
+        currentPrice: 8000,
+        previousPrice: 10000,
+        mapLink: "https://maps.app.goo.gl/eTERdbyBNU4havu16"
+      },
+      {
+        id: "bhavnagar-17",
+        title: "Talaja",
+        image: "/hordingimage/Picture18.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01-- Talaja opp krishna hotel –City entry –Bhavnagar highway 08 ",
+        currentPrice: 8000,
+        previousPrice: 10000,
+        mapLink: "https://maps.app.goo.gl/eTERdbyBNU4havu16"
+      },
+      {
+        id: "bhavnagar-18",
+        title: "Talaja",
+        image: "/hordingimage/Picture19.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01-- Talaja opp jagabhai hotel –City entry –Bhavnagar to Mahuva highway",
+        currentPrice: 22000,
+        previousPrice: 24000,
+        mapLink: "https://maps.app.goo.gl/RZWvmrVa22kyDYEp9"
+      },
+      {
+        id: "bhavnagar-19",
+        title: "Talaja",
+        image: "/hordingimage/Picture20.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01– Talaja- opp Prarambh hotel –City entry –Bhavnagar to Mahuva highway   ",
+        currentPrice: 12000,
+        previousPrice: 14000,
+        mapLink: "https://maps.app.goo.gl/uzRmPzzMiPjW3WSG6"
+      },
+      {
+        id: "bhavnagar-20",
+        title: "Talaja",
+        image: "/hordingimage/Picture21.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01– Talaja- opp Prarambh hotel –City entry –Bhavnagar to Mahuva highway ",
+        currentPrice: 12000,
+        previousPrice: 14000,
+        mapLink: "https://maps.app.goo.gl/uzRmPzzMiPjW3WSG6"
+      },
+      {
+        id: "bhavnagar-21",
+        title: "Talaja",
+        image: "/hordingimage/Picture22.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01– Velavadar – somnath Bhavnagar highway ",
+        currentPrice: 20000,
+        previousPrice: 22000,
+        mapLink: "https://maps.app.goo.gl/pPonC7uijPKR5fFg9"
+      },
+      {
+        id: "bhavnagar-22",
+        title: "Talaja",
+        image: "/hordingimage/Picture23.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A01– Velavadar – somnath Bhavnagar highway   ",
+        currentPrice: 20000,
+        previousPrice: 220000,
+        mapLink: "https://maps.app.goo.gl/pPonC7uijPKR5fFg9"
+      },
+      {
+        id: "bhavnagar-23",
+        title: "Talaja",
+        image: "/hordingimage/Picture24.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
+        description: "VST A054– Bhandariya – opp Nath hills Fc Talaja main Road",
+        currentPrice: 20000,
+        previousPrice: 22000,
+        mapLink: "https://maps.app.goo.gl/y8gEL65pvqk7sqXa7"
       },
     ],
   },
@@ -134,6 +316,47 @@ export default function CityHoardingsPage() {
       }
     }
   }, [params.id]);
+
+  const handleDownload = async () => {
+    if (!selectedHoarding) return;
+
+    try {
+      // Sanitize description for filename
+      const sanitizeForFilename = (str: string) => {
+        return str
+          .replace(/[^a-zA-Z0-9\s-]/g, '') // Remove special characters
+          .replace(/\s+/g, '-')            // Replace spaces with dashes
+          .substring(0, 50)               // Limit to 50 characters
+          .toLowerCase();                 // Convert to lowercase
+      };
+
+      const descriptionFileName = sanitizeForFilename(selectedHoarding.description);
+
+      // Get clean image URL without query parameters
+      const imageUrl = selectedHoarding.image.split('?')[0];
+
+      // Fetch image data
+      const response = await fetch(imageUrl);
+      if (!response.ok) throw new Error('Failed to fetch image');
+      const imageBlob = await response.blob();
+
+      // Create text file with description
+      const textContent = `${selectedHoarding.title}\n\n${selectedHoarding.description}`;
+      const textBlob = new Blob([textContent], { type: 'text/plain' });
+
+      // Create ZIP file
+      const zip = new JSZip();
+      zip.file(`${selectedHoarding.title}.txt`, textBlob);
+      zip.file(`hoarding-image.jpg`, imageBlob);
+
+      // Generate and save ZIP
+      const content = await zip.generateAsync({ type: 'blob' });
+      saveAs(content, `${descriptionFileName}-details.zip`);
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('Download failed. Please try again.');
+    }
+  };
 
   if (!city) {
     return (
@@ -235,11 +458,32 @@ export default function CityHoardingsPage() {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white rounded-lg p-8 max-w-2xl w-full"
+            className="bg-white rounded-lg p-8 max-w-2xl w-full relative"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
           >
+            {/* Close Icon at the Top */}
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+              onClick={() => setSelectedHoarding(null)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
             <h2 className="text-2xl font-bold mb-4 text-[#3982c3]">{selectedHoarding.title}</h2>
             <Image
               src={selectedHoarding.image}
@@ -256,11 +500,41 @@ export default function CityHoardingsPage() {
             <p className="text-gray-500 line-through mb-4">
               Previous Price: ₹{selectedHoarding.previousPrice.toLocaleString()}
             </p>
+
+            {/* Save Button */}
+            {/* <Button
+              className="bg-[#3982c3] text-white hover:bg-[#2c6190] mr-2"
+              onClick={async () => {
+                try {
+                  const imageUrl = selectedHoarding.image.split('?')[0];
+                  const response = await fetch(imageUrl);
+                  if (!response.ok) throw new Error('Failed to fetch image');
+                  const imageBlob = await response.blob();
+
+                  const textContent = `${selectedHoarding.title}\n\n${selectedHoarding.description}`;
+                  const textBlob = new Blob([textContent], { type: 'text/plain' });
+
+                  const zip = new JSZip();
+                  zip.file(`${selectedHoarding.title}.txt`, textBlob);
+                  zip.file(`hoarding-image.jpg`, imageBlob);
+
+                  const content = await zip.generateAsync({ type: 'blob' });
+                  saveAs(content, `${selectedHoarding.title}-details.zip`);
+                } catch (error) {
+                  console.error('Save error:', error);
+                  alert('Save failed. Please try again.');
+                }
+              }}
+            >
+              Save
+            </Button> */}
+
+            {/* Download Button */}
             <Button
               className="bg-[#3982c3] text-white hover:bg-[#2c6190]"
-              onClick={() => setSelectedHoarding(null)}
+              onClick={handleDownload}
             >
-              Close
+              Download
             </Button>
           </motion.div>
         </motion.div>
