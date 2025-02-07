@@ -2,13 +2,9 @@
 
 
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { FiMail, FiPhone, FiMapPin, FiSend, FiLoader } from "react-icons/fi";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import {
   Card,
   CardContent,
@@ -19,33 +15,8 @@ import {
 } from "@/components/ui/card";
 
 const Contact = () => {
-  const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setLoading(false);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: "", email: "", message: "" });
-  };
+  
+  
 
   return (
     <section
