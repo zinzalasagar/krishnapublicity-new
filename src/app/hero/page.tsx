@@ -212,16 +212,33 @@ export default function Hero() {
       <Button
         variant="ghost"
         size="icon"
-        className="absolute left-4 bottom-20 text-white hover:text-[#3982c3] transition-colors duration-300"
+        className="fixed w-[70px] left-4 bottom-20  transition-colors duration-300"
         onClick={() => window.open('https://wa.me/message/CCJKOAWCDVX4D1', '_blank')}
       >
         <Image
           src="/whatsapp.png"
           alt="WhatsApp"
-          width={52}
-          height={52} 
+          width={72} 
+          height={72}
+          className="mb-16"
         />
       </Button>
+
+      <Button
+        variant="ghost"
+        size="icon"
+        className="fixed  w-[70px] mt-30 left-4 bottom-10 text-white hover:text-[#3982c3] transition-colors duration-300"
+        onClick={() => window.open('https://api.whatsapp.com/message/GHLZUT4SW2IXP1?autoload=1&app_absent=0', '_blank')}
+      >
+        <Image
+          src="/whatsapp-pink.png"
+          alt="WhatsApp"
+          width={72}
+          height={72}
+        
+        />
+      </Button>
+
 
       <div className="absolute top-0 left-0 w-full h-1 bg-[#1e4060]">
         <motion.div

@@ -211,6 +211,8 @@ export default function Services() {
                         scale: hoveredService === service.id ? 1.1 : 1,
                       }}
                       transition={{ duration: 0.3 }}
+                      onClick={() => router.push(`/services/${service.id}`)}
+
                     >
                       <Image
                         src={service.image}
