@@ -55,9 +55,9 @@ const Footer = () => {
   ];
 
   const offices = [
-    { city: "Surat", address: "C-107, First Floor, Ambikapark Apt, Opp. HDFC Bank, Nr. Laxmi Tiles, Punagam, Surat, Gujarat, India", phone: "7878161516 , 7874251516" },
-    { city: "Ahmedabad", address: " Ahmedabad, Gujarat", phone: "7874351516,7878161516" },
-    { city: "Bhavnagar", address: " Bhavnagar, Gujarat", phone: "7874051516,7878161516" },
+    { city: "Head Office  - Surat", address: "C-107, First Floor, Ambikapark Apt, Opp. HDFC Bank, Nr. Laxmi Tiles, Punagam, Surat, Gujarat, India", phone: "7874051516 , 7878161516" },
+    { city: "Ahmedabad", address: " Ahmedabad, Gujarat", phone: "7878161516,7874251516" },
+    { city: "Bhavnagar", address: " Bhavnagar, Gujarat", phone: "7874051516,7878351516" },
   ];
 
   return (

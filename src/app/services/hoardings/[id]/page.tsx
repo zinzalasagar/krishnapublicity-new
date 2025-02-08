@@ -250,31 +250,167 @@ const cityHoardings: Record<string, CityData> = {
     hoardings: [
       {
         id: "surat-1",
-        title: "Diamond Market Display",
-        image: "/hordingimage/s3.jpg?height=600&width=800&text=Surat+Hoarding+1",
-        description: "Located near the famous diamond market",
-        currentPrice: 60000,
-        previousPrice: 55000,
-        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+        title: "Olpad",
+        image: "/surathording/olpad/Picture1.jpg?height=600&width=800&text=Surat+Hoarding+1",
+        description: "Surat-olpad – opp,Polise Station main Road",
+        currentPrice: 9500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/sKVV4HCF2KnQYuiv8"
       },
       {
         id: "surat-2",
-        title: "Olpad Road Billboard",
-        image: "/hordingimage/s2.jpg?height=600&width=800&text=Surat+Hoarding+2",
-        description: "Popular tourist route with high traffic",
-        currentPrice: 55000,
-        previousPrice: 50000,
-        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+        title: "Olpad",
+        image: "/surathording/olpad/Picture2.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – opp,Polise Station main Road",
+        currentPrice: 9500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/sKVV4HCF2KnQYuiv8"
       },
       {
         id: "surat-3",
-        title: "olpad Road",
-        image: "/hordingimage/s4.jpg?height=600&width=800&text=Surat+Hoarding+2",
-        description: "Popular tourist route with high traffic",
-        currentPrice: 55000,
-        previousPrice: 50000,
+        title: "Olpad",
+        image: "/surathording/olpad/Picture3.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – opp,Polise Station main Road",
+        currentPrice: 10000,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/sKVV4HCF2KnQYuiv8"
+      },
+      {
+        id: "surat-4",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture4.jpg?height=600&width=800&text=Surat+Hoarding+1",
+        description: "Surat-olpad – BSNL office main Road-fc.kim road ",
+        currentPrice: 8500,
+        previousPrice: 11000,
+        mapLink: "https://maps.app.goo.gl/9xMKSetfwXxe5WqbA"
+      },
+      {
+        id: "surat-5",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture5.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – BSNL office main Road-fc.kim road",
+        currentPrice: 8500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/9xMKSetfwXxe5WqbA"
+      },
+      {
+        id: "surat-6",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture6.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – BSNL office main Road-fc.Surat city road",
+        currentPrice: 0,
+        previousPrice: 0,
+        mapLink: "https://maps.app.goo.gl/9xMKSetfwXxe5WqbA"
+      },
+      {
+        id: "surat-7",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture7.jpg?height=600&width=800&text=Surat+Hoarding+1",
+        description: "Surat-olpad – HP pump main Road-fc.Surat city road",
+        currentPrice: 8500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/z5Rps3VUGE3Y38c5A"
+      },
+      {
+        id: "surat-8",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture8.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – HP pump main Road-fc.Surat city road",
+        currentPrice: 8500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/z5Rps3VUGE3Y38c5A"
+      },
+      {
+        id: "surat-9",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture9.png?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – Fruit Market city entry ",
+        currentPrice: 9500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/Kz3agMym8xGakMrH6"
+      },
+      {
+        id: "surat-10",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture10.jpg?height=600&width=800&text=Surat+Hoarding+1",
+        description: "Surat-olpad – Fruit Market city entry (BG)",
+        currentPrice: 9200,
+        previousPrice: 12000,
         mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
       },
+      {
+        id: "surat-11",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture11.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – Senakhadi-city exit .fc surat city",
+        currentPrice: 7500,
+        previousPrice: 9500,
+        mapLink: "https://maps.app.goo.gl/kixw2nZnqofKXMKH9"
+      },
+      {
+        id: "surat-12",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture12.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – Senakhadi-city exit .fc surat city",
+        currentPrice: 15000,
+        previousPrice: 17000,
+        mapLink: "https://maps.app.goo.gl/kixw2nZnqofKXMKH9"
+      },
+      {
+        id: "surat-13",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture13.jpg?height=600&width=800&text=Surat+Hoarding+1",
+        description: "Surat-olpad – Senakhadi-city entry .fc surat to olpad",
+        currentPrice: 14000,
+        previousPrice: 16000,
+        mapLink: "https://goo.gl/maps/exampleBhavnagarLink1"
+      },
+      {
+        id: "surat-14",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture14.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – Senakhadi-city entry .fc kim –Ankleswar ",
+        currentPrice: 9500,
+        previousPrice: 12000,
+        mapLink: "https://maps.app.goo.gl/mg3usL2DRDBeGqh47"
+      },
+      {
+        id: "surat-15",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture15.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad –fruit market fc-surat city",
+        currentPrice: 7500,
+        previousPrice: 9500,
+        mapLink: "https://maps.app.goo.gl/feT2CdCMgrJEu9Sb8"
+      },
+      {
+        id: "surat-16",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture16.jpg?height=600&width=800&text=Surat+Hoarding+1",
+        description: "Surat-olpad –fruit market fc-surat city",
+        currentPrice: 7500,
+        previousPrice: 9500,
+        mapLink: "Surat-olpad –fruit market fc-surat city"
+      },
+      {
+        id: "surat-17",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture17.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – fruit market -city entry .fc kim –Ankleswar",
+        currentPrice: 7500,
+        previousPrice: 9500,
+        mapLink: "https://maps.app.goo.gl/feT2CdCMgrJEu9Sb8"
+      },
+      {
+        id: "surat-18",
+        title: "Olpad",
+        image: "/surathording/olpad/Picture18.jpg?height=600&width=800&text=Surat+Hoarding+2",
+        description: "Surat-olpad – fruit market -city entry .fc kim –Ankleswar",
+        currentPrice: 7500,
+        previousPrice: 9000,
+        mapLink: "https://maps.app.goo.gl/feT2CdCMgrJEu9Sb8"
+      },
+   
     ],
   },
   ahmedabad: {
