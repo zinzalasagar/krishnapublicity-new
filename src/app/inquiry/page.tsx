@@ -13,7 +13,7 @@ import {
 
 const InquiryPage = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-primary via-primary-dark to-primary-darker min-h-screen flex items-center justify-center">
+    <section className="py-16 bg-gradient-to-r from-primary via-primary-dark to-primary-darker  to-[#31516f] min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-lg mx-4">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-[#3982c3]">

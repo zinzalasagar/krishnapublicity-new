@@ -213,7 +213,7 @@ export default function Hero() {
         variant="ghost"
         size="icon"
         className="fixed w-[70px] left-4 bottom-20  transition-colors duration-300"
-        onClick={() => window.open('https://wa.me/message/CCJKOAWCDVX4D1', '_blank')}
+        onClick={() => window.open('https://api.whatsapp.com/message/XNU2BAKKXIZOG1?autoload=1&app_absent=0', '_blank')}
       >
         <Image
           src="/whatsapp.png"

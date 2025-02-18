@@ -94,7 +94,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-16 bg-gradient-to-r from-primary via-primary-dark to-primary-darker"
+      className="py-16 bg-gradient-to-r from-primary via-primary-dark to-primary-darker  to-[#31516f]"
     >
       <div className="container mx-auto px-4">
         <motion.h2
