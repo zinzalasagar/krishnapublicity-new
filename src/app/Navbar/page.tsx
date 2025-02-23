@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Search, Menu, X, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
+import { FaPhoneAlt } from "react-icons/fa";
 
 const navItems = [
   { section: "home", label: "Home" },
@@ -14,6 +15,12 @@ const navItems = [
   { section: "services", label: "Services" },
   { section: "gallery", label: "Gallery" },
   { section: "contact", label: "Contact" },
+  {
+    section: "tel:+91 7878161516",
+    label: " +91 7878161516",
+    isExternal: true,
+    icon: <FaPhoneAlt className="w-5 h-5 mr-2" /> // Custom phone icon
+  },
 ]
 
 export default function Navbar() {
@@ -80,7 +87,7 @@ export default function Navbar() {
           </motion.div>
 
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map(({ section, label }, index) => (
+            {navItems.map(({ section, label, icon }, index) => (
               <motion.div
                 key={section}
                 initial={{ opacity: 0, y: -20 }}
@@ -93,9 +100,10 @@ export default function Navbar() {
                   duration={500}
                   className={`relative flex items-center cursor-pointer space-x-1 px-4 py-2 rounded-full transition-all duration-300 ${activeSection === section
                     ? "bg-white text-[#3982c3] font-bold shadow-md"
-                      : "text-white hover:bg-white/20 font-semibold"
+                    : "text-white hover:bg-white/20 font-semibold"
                     }`}
                 >
+                  {icon && <span>{icon}</span>} {/* Render the custom icon */}
                   <span>{label}</span>
                 </ScrollLink>
               </motion.div>
@@ -136,26 +144,43 @@ export default function Navbar() {
             className="md:hidden bg-gradient-to-b from-blue-600 to-purple-600 backdrop-blur-md overflow-hidden"
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
-              {navItems.map(({ section, label }, index) => (
+              {navItems.map(({ section, label, isExternal, icon }, index) => (
                 <motion.div
                   key={section}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 * index }}
                 >
-                  <ScrollLink
-                    to={section}
-                    smooth={true}
-                    duration={500}
-                    className={`block p-2 rounded-md transition-all duration-300 ${activeSection === section ? "bg-white text-blue-600 font-bold" : "text-white hover:bg-white/20"
-                      }`}
-                    onClick={() => {
-                      toggleMenu()
-                      setActiveSection(section)
-                    }}
-                  >
-                    {label}
-                  </ScrollLink>
+                  {isExternal ? (
+                    <a
+                      href={section}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`block p-2 rounded-md transition-all duration-300 ${activeSection === section ? "bg-white text-blue-600 font-bold" : "text-white hover:bg-white/20"
+                        }`}
+                      onClick={() => {
+                        toggleMenu()
+                        setActiveSection(section)
+                      }}
+                    >
+                      {icon && <span>{icon}</span>} {/* Render the custom icon */}
+                      {label}
+                    </a>
+                  ) : (
+                    <ScrollLink
+                      to={section}
+                      smooth={true}
+                      duration={500}
+                      className={`block p-2 rounded-md transition-all duration-300 ${activeSection === section ? "bg-white text-blue-600 font-bold" : "text-white hover:bg-white/20"
+                        }`}
+                      onClick={() => {
+                        toggleMenu()
+                        setActiveSection(section)
+                      }}
+                    >
+                      {label}
+                    </ScrollLink>
+                  )}
                 </motion.div>
               ))}
               <Button

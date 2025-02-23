@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, CheckCircle, Award, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -18,11 +18,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 
 const stats = [
-  { icon: Users, value: "10+", label: "Years of Experience", progress: 100 },
-  { icon: CheckCircle, value: "5000+", label: "Clients Served", progress: 85 },
-  { icon: Award, value: "3600+", label: "Projects Completed", progress: 70 },
-  { icon: Zap, value: "98%", label: "Client Satisfaction", progress: 98 },
-];
+  { icon: Users, value: 10, label: "Years of Experience", progress: 100, suffix: "+" },
+  { icon: CheckCircle, value: 5000, label: "Clients Served", progress: 85, suffix: "+" },
+  { icon: Award, value: 3600, label: "Projects Completed", progress: 70, suffix: "+" },
+  { icon: Zap, value: 98, label: "Client Satisfaction", progress: 98, suffix: "%" },
+]
+
 
 const teamMembers = [
   {
@@ -62,24 +63,58 @@ const milestones = [
 export default function About() {
   const [currentMember, setCurrentMember] = useState(0);
   const [activeTab, setActiveTab] = useState("story");
-  const [animatedStats, setAnimatedStats] = useState(stats.map(() => 0));
+  const [animatedStats, setAnimatedStats] = useState(stats.map(() => ({ value: 0, progress: 0 })))
+  const animationStarted = useRef(false)
 
   useEffect(() => {
-    if (activeTab === "story") {
-      const interval = setInterval(() => {
-        setAnimatedStats((prev) =>
-          prev.map((stat, index) => {
-            if (stat < stats[index].progress) {
-              return stat + 1;
-            }
-            return stat;
-          })
-        );
-      }, 20);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !animationStarted.current) {
+          animationStarted.current = true
+          startStatsAnimation()
+        }
+      },
+      { threshold: 0.1 },
+    )
 
-      return () => clearInterval(interval);
+    const section = document.getElementById("about")
+    if (section) {
+      observer.observe(section)
     }
-  }, [activeTab]);
+
+    return () => {
+      if (section) {
+        observer.unobserve(section)
+      }
+    }
+  }, [])
+
+  const startStatsAnimation = () => {
+    stats.forEach((stat, index) => {
+      const duration = 2000 // 2 seconds
+      const steps = 50
+      const valueIncrement = stat.value / steps
+      const progressIncrement = stat.progress / steps
+      let currentStep = 0
+
+      const interval = setInterval(() => {
+        if (currentStep < steps) {
+          setAnimatedStats((prev) => {
+            const newStats = [...prev]
+            newStats[index] = {
+              value: Math.min(Math.round(valueIncrement * (currentStep + 1)), stat.value),
+              progress: Math.min(Math.round(progressIncrement * (currentStep + 1)), stat.progress),
+            }
+            return newStats
+          })
+          currentStep++
+        } else {
+          clearInterval(interval)
+        }
+      }, duration / steps)
+    })
+  }
+
 
   const nextMember = () => {
     setCurrentMember((prev) => (prev + 1) % teamMembers.length);
@@ -168,15 +203,13 @@ export default function About() {
                         <CardHeader className="pb-2">
                           <stat.icon className="w-8 h-8 text-[#3982c3] mb-2" />
                           <CardTitle className="text-[#3982c3] text-2xl">
-                            {stat.value}
+                            {animatedStats[index].value}
+                            {stat.suffix}
                           </CardTitle>
                         </CardHeader>
                         <CardContent>
                           <p className="mb-2 text-[#1e4060]">{stat.label}</p>
-                          <Progress
-                            value={animatedStats[index]}
-                            className="h-2 bg-[#d1e8ff]"
-                          />
+                          <Progress value={animatedStats[index].progress} className="h-2 bg-[#d1e8ff]" />
                         </CardContent>
                       </Card>
                     </motion.div>
