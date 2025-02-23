@@ -91,19 +91,23 @@ export default function About() {
 
   const startStatsAnimation = () => {
     stats.forEach((stat, index) => {
-      const duration = 2000 // 2 seconds
-      const steps = 50
-      const valueIncrement = stat.value / steps
-      const progressIncrement = stat.progress / steps
+      const duration = 3000 // Increased to 3 seconds
+      const steps = 100 // Increased number of steps for smoother animation
+      // const valueIncrement = stat.value / steps
+      // const progressIncrement = stat.progress / steps
       let currentStep = 0
 
       const interval = setInterval(() => {
         if (currentStep < steps) {
           setAnimatedStats((prev) => {
             const newStats = [...prev]
+            // Use easeOutQuad easing function for smoother animation
+            const progress = currentStep / steps
+            const easeOutValue = 1 - (1 - progress) * (1 - progress)
+
             newStats[index] = {
-              value: Math.min(Math.round(valueIncrement * (currentStep + 1)), stat.value),
-              progress: Math.min(Math.round(progressIncrement * (currentStep + 1)), stat.progress),
+              value: Math.min(Math.round(stat.value * easeOutValue), stat.value),
+              progress: Math.min(Math.round(stat.progress * easeOutValue), stat.progress),
             }
             return newStats
           })
