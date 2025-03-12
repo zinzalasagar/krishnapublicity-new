@@ -10,6 +10,7 @@ interface HeroVideo {
   src: string;
   title: string;
   subtitle: string;
+  type: "video" | "image"; // Add a type to differentiate video and image
 }
 
 const heroVideos: HeroVideo[] = [
@@ -17,16 +18,19 @@ const heroVideos: HeroVideo[] = [
     src: "/branndingImage/v1.mp4",
     title: "WELCOME TO KRISHNA PUBLICITY",
     subtitle: "Your Trusted Partner for Creative Advertising Solutions",
+    type: "video", // First one is a video
   },
   {
-    src: "/branndingImage/v1.mp4",
+    src: "./banner3.jpg",
     title: "Advertising Agency in All Over Gujarat.",
-    subtitle: "Your Brand  With our outdoor billboard locations across all city of Gujarat.",
+    subtitle: "Your Brand With our outdoor billboard locations across all city of Gujarat.",
+    type: "image", // This and others are images
   },
   {
-    src: "/branndingImage/v1.mp4",
+    src: "./banner3.jpg",
     title: "BHAVNAGAR - SURAT - AHEMDABAD",
     subtitle: "Transform Your Vision into Reality",
+    type: "image", // This is also an image
   },
 ];
 
@@ -40,7 +44,7 @@ export default function Hero() {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
-    }, 10000); // Change video every 10 seconds
+    }, 10000); // Change slide every 10 seconds
   };
 
   useEffect(() => {
@@ -57,7 +61,7 @@ export default function Hero() {
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
-        if (index === currentVideo) {
+        if (index === currentVideo && heroVideos[index].type === "video") {
           video.play();
         } else {
           video.pause();
@@ -95,18 +99,26 @@ export default function Hero() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <video
-              ref={(el) => {
-                videoRefs.current[index] = el;
-              }}
-              className="absolute inset-0 w-full h-full object-cover"
-              loop
-              muted
-              playsInline
-            >
-              <source src={video.src} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {video.type === "video" ? (
+              <video
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                className="absolute inset-0 w-full h-full object-cover"
+                loop
+                muted
+                playsInline
+              >
+                <source src={video.src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={video.src}
+                alt={video.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
           </motion.div>
         ))}
       </AnimatePresence>
@@ -135,15 +147,6 @@ export default function Hero() {
           >
             {heroVideos[currentVideo].subtitle}
           </motion.p>
-          <motion.div
-            className="space-x-4"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-
-            {/* Add your buttons here if needed */}
-          </motion.div>
         </div>
       </div>
 
@@ -209,37 +212,6 @@ export default function Hero() {
         <ChevronDown className="ml-2 h-4 w-4" />
       </Button>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        className="fixed w-[70px] left-4 bottom-20  transition-colors duration-300"
-        onClick={() => window.open('https://api.whatsapp.com/message/XNU2BAKKXIZOG1?autoload=1&app_absent=0', '_blank')}
-      >
-        <Image
-          src="/whatsapp.png"
-          alt="WhatsApp"
-          width={72} 
-          height={72}
-          className="mb-16"
-        />
-      </Button>
-
-      <Button
-        variant="ghost"
-        size="icon"
-        className="fixed  w-[70px] mt-30 left-4 bottom-10 text-white hover:text-[#3982c3] transition-colors duration-300"
-        onClick={() => window.open('https://api.whatsapp.com/message/GHLZUT4SW2IXP1?autoload=1&app_absent=0', '_blank')}
-      >
-        <Image
-          src="/whatsapp-pink.png"
-          alt="WhatsApp"
-          width={72}
-          height={72}
-        
-        />
-      </Button>
-
-
       <div className="absolute top-0 left-0 w-full h-1 bg-[#1e4060]">
         <motion.div
           className="h-full bg-[#3982c3]"
@@ -251,4 +223,3 @@ export default function Hero() {
     </section>
   );
 }
-
