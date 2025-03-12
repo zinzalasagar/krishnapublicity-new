@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import Image from 'next/image';
 
 interface HeroVideo {
   src: string;
