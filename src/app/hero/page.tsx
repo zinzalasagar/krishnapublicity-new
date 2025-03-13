@@ -14,19 +14,20 @@ interface HeroVideo {
 
 const heroVideos: HeroVideo[] = [
   {
-    src: "/branndingImage/v1.mp4",
+    // src: "/branndingImage/v1.mp4",
+    src: "/main1.jpg",
     title: "WELCOME TO KRISHNA PUBLICITY",
     subtitle: "Your Trusted Partner for Creative Advertising Solutions",
-    type: "video", // First one is a video
+    type: "image",
   },
   {
-    src: "./banner3.jpg",
+    src: "/main2.jpg",
     title: "Advertising Agency in All Over Gujarat.",
     subtitle: "Your Brand With our outdoor billboard locations across all city of Gujarat.",
     type: "image", // This and others are images
   },
   {
-    src: "./banner3.jpg",
+    src: "/main3.jpg",
     title: "BHAVNAGAR - SURAT - AHEMDABAD",
     subtitle: "Transform Your Vision into Reality",
     type: "image", // This is also an image
@@ -122,7 +123,7 @@ export default function Hero() {
         ))}
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#b1d4f3] via-[#2c6190] to-[#1e4060] opacity-50" />
+      {/* <div className="absolute inset-0 bg-gradient-to-r  via-[#2c6190] to-[#1e4060] opacity-50" /> */}
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center z-10 max-w-4xl px-4">
@@ -182,7 +183,7 @@ export default function Hero() {
         <ChevronRight className="w-6 h-6" />
       </Button>
 
-      <Button
+      {/* <Button
         variant="ghost"
         size="sm"
         className="absolute bottom-4 left-4 text-white hover:text-[#3982c3] transition-colors duration-300"
@@ -194,9 +195,9 @@ export default function Hero() {
           <Play className="mr-2 h-4 w-4" />
         )}
         {isPlaying ? "Pause" : "Play"} Slideshow
-      </Button>
+      </Button> */}
 
-      <Button
+      {/* <Button
         variant="ghost"
         size="sm"
         className="absolute bottom-4 right-4 text-white hover:text-[#3982c3] transition-colors duration-300"
@@ -209,16 +210,36 @@ export default function Hero() {
       >
         Scroll Down
         <ChevronDown className="ml-2 h-4 w-4" />
+      </Button> */}
+
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute left-4 bottom-24 text-white hover:text-[#3982c3] transition-colors duration-300 w-20 h-20 flex justify-center items-center"
+        onClick={() => window.open(' https://wa.me/message/GHLZUT4SW2IXP1', '_blank')}
+      >
+        <img src="/whatsapp.png" alt="WhatsApp" className="w-16 h-16" />
       </Button>
 
-      <div className="absolute top-0 left-0 w-full h-1 bg-[#1e4060]">
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute left-4 bottom-6 text-white hover:text-[#3982c3] transition-colors duration-300 w-20 h-20 flex justify-center items-center"
+        onClick={() => window.open(' https://wa.me/917878161516', '_blank')}
+      >
+        <img src="/whatsapp-pink.png" alt="WhatsApp" className="w-16 h-16" />
+      </Button>
+
+
+
+      {/* <div className="absolute top-0 left-0 w-full h-1 bg-[rgb(30,64,96)]">
         <motion.div
           className="h-full bg-[#3982c3]"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 10, ease: "linear", repeat: Infinity }}
         />
-      </div>
+      </div> */}
     </section>
   );
 }
