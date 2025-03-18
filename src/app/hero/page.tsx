@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 interface HeroVideo {
@@ -83,9 +83,9 @@ export default function Hero() {
     if (isPlaying) startAutoScroll();
   };
 
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
+  // const togglePlayPause = () => {
+  //   setIsPlaying(!isPlaying);
+  // };
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
