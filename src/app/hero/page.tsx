@@ -36,7 +36,7 @@ const heroVideos: HeroVideo[] = [
 
 export default function Hero() {
   const [currentVideo, setCurrentVideo] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying] = useState(true);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -123,7 +123,7 @@ export default function Hero() {
         ))}
       </AnimatePresence>
 
-      {/* <div className="absolute inset-0 bg-gradient-to-r  via-[#2c6190] to-[#1e4060] opacity-50" /> */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#b1d4f3] via-[#2c6190] to-[#1e4060] opacity-50" />
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center z-10 max-w-4xl px-4">
