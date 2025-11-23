@@ -27,19 +27,19 @@ const stats = [
 
 const teamMembers = [
   {
-    name: "Mr.Sanjay Ahir",
+    name: "Mr.Sanjay Ahir & Vivek Ahir",
     role: "Ceo&founder",
     image: "/placeholder.svg?height=200&width=200&text=John+Doe",
     bio: "Mr.Sanjay Ahir has over 15 years of experience in the industry and is passionate about driving innovation.",
   },
   {
     name: "Mr.Umesh zinzala",
-    role: "Creative Director",
+    role: "Management Director",
     image: "/placeholder.svg?height=200&width=200&text=Jane+Smith",
     bio: "Mr.Umesh zinzala brings a wealth of creative expertise and has led numerous award-winning campaigns.",
   },
   {
-    name: "Viky",
+    name: "Harshad Ahir",
     role: "Marketing Manager",
     image: "/placeholder.svg?height=200&width=200&text=Mike+Johnson",
     bio: "Viky specializes in digital marketing strategies and has a track record of driving growth.",

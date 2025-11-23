@@ -77,7 +77,7 @@ export default function Navbar() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center">
             <ScrollLink to="home" smooth={true} duration={500}>
               <Image
-                src="/logos/krishnalogo.png"
+                src="/krishnalogo.jpg"
                 alt="Krishna Publicity"
                 width={125}
                 height={50}

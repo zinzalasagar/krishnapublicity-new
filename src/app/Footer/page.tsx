@@ -70,7 +70,7 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <Image src="/logos/krishnalogo.png" alt="Krishna Publicity" width={150} height={50} />
+            <Image src="/krishnalogo.jpg" alt="Krishna Publicity" width={150} height={50} />
             <p className="text-sm leading-relaxed">
               Your Trusted Partner for Creative Advertising Solutions. We bring your vision to life with innovative marketing strategies.
             </p>

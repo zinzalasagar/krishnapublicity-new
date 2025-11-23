@@ -9,6 +9,14 @@ const logos = [
     { src: "/logos/logo3.png", alt: "Company 3" },
     { src: "/logos/logo4.png", alt: "Company 4" },
     { src: "/logos/logo5.png", alt: "Company 5" },
+    { src: "/logos/logo6.png", alt: "Company 6" },
+    { src: "/logos/logo7.jpg", alt: "Company 7" },
+    { src: "/logos/logo8.jpg", alt: "Company 8" },
+    { src: "/logos/logo9.jpg", alt: "Company 9" },
+    { src: "/logos/logo10.jpg", alt: "Company 10" },
+    { src: "/logos/logo11.jpg", alt: "Company 11" },
+    { src: "/logos/logo12.jpg", alt: "Company 12" },
+    { src: "/logos/logo13.png", alt: "Company 13" },
 ];
 
 export default function LogoSlider() {

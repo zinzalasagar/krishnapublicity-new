@@ -76,7 +76,7 @@ const cityHoardings: Record<string, CityData> = {
         id: "bhavnagar-5",
         title: "Mahuva",
         image: "/hordingimage/Picture6.jpg?height=600&width=800&text=Bhavnagar+Hoarding+2",
-        description: "SM C01-- Mahuva– Neswad Chokdi",  
+        description: "SM C01-- Mahuva– Neswad Chokdi",
         currentPrice: 10000,
         previousPrice: 12000,
         mapLink: "https://maps.app.goo.gl/ic1Nf8PH86eiXYvd7"
@@ -410,7 +410,7 @@ const cityHoardings: Record<string, CityData> = {
         previousPrice: 9000,
         mapLink: "https://maps.app.goo.gl/feT2CdCMgrJEu9Sb8"
       },
-   
+
     ],
   },
   ahmedabad: {
@@ -418,7 +418,7 @@ const cityHoardings: Record<string, CityData> = {
     hoardings: [
       {
         id: "ahmedabad-1",
-        title: "Hoarding Title 1",
+        title: "  1 ",
         image: "/ahmedabad/image4.jpg?height=600&width=800&text=Ahmedabad+Hoarding+1",
         description: "Description for hoarding 1",
         currentPrice: 200000,
@@ -427,7 +427,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-2",
-        title: "Hoarding Title 2",
+        title: "  2",
         image: "/ahmedabad/image5.jpg?height=600&width=800&text=Ahmedabad+Hoarding+2",
         description: "Description for hoarding 2",
         currentPrice: 200000,
@@ -436,7 +436,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-3",
-        title: "Hoarding Title 3",
+        title: "  3",
         image: "/ahmedabad/image6.jpg?height=600&width=800&text=Ahmedabad+Hoarding+3",
         description: "Description for hoarding 3",
         currentPrice: 100000,
@@ -445,7 +445,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-4",
-        title: "Hoarding Title 4",
+        title: "  4",
         image: "/ahmedabad/image7.jpg?height=600&width=800&text=Ahmedabad+Hoarding+3",
         description: "Description for hoarding 3",
         currentPrice: 130000,
@@ -454,7 +454,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-5",
-        title: "Hoarding Title 5",
+        title: "  5",
         image: "/ahmedabad/image8.jpg?height=600&width=800&text=Ahmedabad+Hoarding+3",
         description: "Description for hoarding 5",
         currentPrice: 130000,
@@ -463,7 +463,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-6",
-        title: "Hoarding Title 6",
+        title: "  6",
         image: "/ahmedabad/image9.jpg?height=600&width=800&text=Ahmedabad+Hoarding+3",
         description: "Description for hoarding 6",
         currentPrice: 300000,
@@ -472,7 +472,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-7",
-        title: "Hoarding Title 7",
+        title: "  7",
         image: "/ahmedabad/image10.jpg?height=600&width=800&text=Ahmedabad+Hoarding+3",
         description: "Description for hoarding 7",
         currentPrice: 150000,
@@ -481,7 +481,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-8",
-        title: "Hoarding Title 8",
+        title: "  8",
         image: "/ahmedabad/image11.jpg?height=600&width=800&text=Ahmedabad+Hoarding+8",
         description: "Description for hoarding 8",
         currentPrice: 150000,
@@ -490,7 +490,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-9",
-        title: "Hoarding Title 9",
+        title: "  9",
         image: "/ahmedabad/image12.jpg?height=600&width=800&text=Ahmedabad+Hoarding+9",
         description: "Description for hoarding 9",
         currentPrice: 300000,
@@ -499,7 +499,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-10",
-        title: "Hoarding Title 10",
+        title: "  10",
         image: "/ahmedabad/image13.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 10",
         currentPrice: 125000,
@@ -508,7 +508,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-11",
-        title: "Hoarding Title 11",
+        title: "  11",
         image: "/ahmedabad/image14.jpg?height=600&width=800&text=Ahmedabad+Hoarding+11",
         description: "Description for hoarding 11",
         currentPrice: 250000,
@@ -517,7 +517,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-12",
-        title: "Hoarding Title 12",
+        title: "  12",
         image: "/ahmedabad/image15.jpg?height=600&width=800&text=Ahmedabad+Hoarding+12",
         description: "Description for hoarding 12",
         currentPrice: 120000,
@@ -526,7 +526,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-13",
-        title: "Hoarding Title 13",
+        title: "  13",
         image: "/ahmedabad/image16.jpg?height=600&width=800&text=Ahmedabad+Hoarding+13",
         description: "Description for hoarding 13",
         currentPrice: 120000,
@@ -535,7 +535,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-14",
-        title: "Hoarding Title 14",
+        title: "  14",
         image: "/ahmedabad/image17.jpg?height=600&width=800&text=Ahmedabad+Hoarding+14",
         description: "Description for hoarding 14",
         currentPrice: 200000,
@@ -544,7 +544,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-15",
-        title: "Hoarding Title 15",
+        title: "  15",
         image: "/ahmedabad/image18.jpg?height=600&width=800&text=Ahmedabad+Hoarding+15",
         description: "Description for hoarding 15",
         currentPrice: 80000,
@@ -553,7 +553,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-16",
-        title: "Hoarding Title 16",
+        title: "  16",
         image: "/ahmedabad/image19.jpg?height=600&width=800&text=Ahmedabad+Hoarding+16",
         description: "Description for hoarding 16",
         currentPrice: 40000,
@@ -562,7 +562,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-17",
-        title: "Hoarding Title 17",
+        title: "  17",
         image: "/ahmedabad/image20.jpg?height=600&width=800&text=Ahmedabad+Hoarding+17",
         description: "Description for hoarding 17",
         currentPrice: 45000,
@@ -571,7 +571,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-18",
-        title: "Hoarding Title 18",
+        title: "  18",
         image: "/ahmedabad/image21.jpg?height=600&width=800&text=Ahmedabad+Hoarding+18",
         description: "Description for hoarding 18",
         currentPrice: 45000,
@@ -580,7 +580,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-19",
-        title: "Hoarding Title 19",
+        title: "  19",
         image: "/ahmedabad/image22.jpg?height=600&width=800&text=Ahmedabad+Hoarding+19",
         description: "Description for hoarding 19",
         currentPrice: 45000,
@@ -589,7 +589,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-20",
-        title: "Hoarding Title 20",
+        title: "  20",
         image: "/ahmedabad/image23.jpg?height=600&width=800&text=Ahmedabad+Hoarding+20",
         description: "Description for hoarding 20",
         currentPrice: 40000,
@@ -598,7 +598,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-21",
-        title: "Hoarding Title 21",
+        title: "  21",
         image: "/ahmedabad/image24.jpg?height=600&width=800&text=Ahmedabad+Hoarding+21",
         description: "Description for hoarding 21",
         currentPrice: 40000,
@@ -607,7 +607,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-22",
-        title: "Hoarding Title 22",
+        title: "  22",
         image: "/ahmedabad/image25.jpg?height=600&width=800&text=Ahmedabad+Hoarding+22",
         description: "Description for hoarding 22",
         currentPrice: 40000,
@@ -616,7 +616,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-23",
-        title: "Hoarding Title 23",
+        title: "  23",
         image: "/ahmedabad/image26.jpg?height=600&width=800&text=Ahmedabad+Hoarding+23",
         description: "Description for hoarding 23",
         currentPrice: 150000,
@@ -625,7 +625,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-24",
-        title: "Hoarding Title 24",
+        title: "  24",
         image: "/ahmedabad/image27.jpg?height=600&width=800&text=Ahmedabad+Hoarding+24",
         description: "Description for hoarding 24",
         currentPrice: 80000,
@@ -634,7 +634,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-25",
-        title: "Hoarding Title 25",
+        title: "  25",
         image: "/ahmedabad/image28.jpg?height=600&width=800&text=Ahmedabad+Hoarding+25",
         description: "Description for hoarding 25",
         currentPrice: 120000,
@@ -643,7 +643,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-26",
-        title: "Hoarding Title 26",
+        title: "  26",
         image: "/ahmedabad/image29.jpg?height=600&width=800&text=Ahmedabad+Hoarding+26",
         description: "Description for hoarding 26",
         currentPrice: 100000,
@@ -652,7 +652,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-27",
-        title: "Hoarding Title 27",
+        title: "  27",
         image: "/ahmedabad/image30.jpg?height=600&width=800&text=Ahmedabad+Hoarding+27",
         description: "Description for hoarding 27",
         currentPrice: 30000,
@@ -661,7 +661,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-28",
-        title: "Hoarding Title 28",
+        title: "  28",
         image: "/ahmedabad/image31.jpg?height=600&width=800&text=Ahmedabad+Hoarding+28",
         description: "Description for hoarding 28",
         currentPrice: 30000,
@@ -670,7 +670,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-29",
-        title: "Hoarding Title 29",
+        title: "  29",
         image: "/ahmedabad/image32.jpg?height=600&width=800&text=Ahmedabad+Hoarding+29",
         description: "Description for hoarding 29",
         currentPrice: 20000,
@@ -679,7 +679,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-30",
-        title: "Hoarding Title 30",
+        title: "  30",
         image: "/ahmedabad/image33.jpg?height=600&width=800&text=Ahmedabad+Hoarding+30",
         description: "Description for hoarding 30",
         currentPrice: 50000,
@@ -688,7 +688,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-31",
-        title: "Hoarding Title 31",
+        title: "  31",
         image: "/ahmedabad/image34.jpg?height=600&width=800&text=Ahmedabad+Hoarding+31",
         description: "Description for hoarding 31",
         currentPrice: 200000,
@@ -697,7 +697,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-32",
-        title: "Hoarding Title 32",
+        title: "  32",
         image: "/ahmedabad/image35.jpg?height=600&width=800&text=Ahmedabad+Hoarding+32",
         description: "Description for hoarding 32",
         currentPrice: 150000,
@@ -706,7 +706,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-33",
-        title: "Hoarding Title 33",
+        title: "  33",
         image: "/ahmedabad/image36.jpg?height=600&width=800&text=Ahmedabad+Hoarding+33",
         description: "Description for hoarding 33",
         currentPrice: 90000,
@@ -715,7 +715,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-34",
-        title: "Hoarding Title 34",
+        title: "  34",
         image: "/ahmedabad/image37.jpg?height=600&width=800&text=Ahmedabad+Hoarding+34",
         description: "Description for hoarding 34",
         currentPrice: 70000,
@@ -724,7 +724,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-35",
-        title: "Hoarding Title 35",
+        title: "  35",
         image: "/ahmedabad/image38.jpg?height=600&width=800&text=Ahmedabad+Hoarding+35",
         description: "Description for hoarding 35",
         currentPrice: 80000,
@@ -733,7 +733,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-36",
-        title: "Hoarding Title 36",
+        title: "  36",
         image: "/ahmedabad/image39.jpg?height=600&width=800&text=Ahmedabad+Hoarding+36",
         description: "Description for hoarding 36",
         currentPrice: 40000,
@@ -742,7 +742,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-37",
-        title: "Hoarding Title 37",
+        title: "  37",
         image: "/ahmedabad/image40.jpg?height=600&width=800&text=Ahmedabad+Hoarding+37",
         description: "Description for hoarding 37",
         currentPrice: 50000,
@@ -751,7 +751,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-38",
-        title: "Hoarding Title 38",
+        title: "  38",
         image: "/ahmedabad/image41.jpg?height=600&width=800&text=Ahmedabad+Hoarding+38",
         description: "Description for hoarding 38",
         currentPrice: 120000,
@@ -760,7 +760,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-39",
-        title: "Hoarding Title 39",
+        title: "  39",
         image: "/ahmedabad/image42.jpg?height=600&width=800&text=Ahmedabad+Hoarding+39",
         description: "Description for hoarding 39",
         currentPrice: 120000,
@@ -769,7 +769,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-40",
-        title: "Hoarding Title 40",
+        title: "  40",
         image: "/ahmedabad/image43.jpg?height=600&width=800&text=Ahmedabad+Hoarding+40",
         description: "Description for hoarding 40",
         currentPrice: 160000,
@@ -778,7 +778,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-41",
-        title: "Hoarding Title 41",
+        title: "  41",
         image: "/ahmedabad/image44.jpg?height=600&width=800&text=Ahmedabad+Hoarding+41",
         description: "Description for hoarding 41",
         currentPrice: 100000,
@@ -787,7 +787,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-42",
-        title: "Hoarding Title 42",
+        title: "  42",
         image: "/ahmedabad/image45.jpg?height=600&width=800&text=Ahmedabad+Hoarding+42",
         description: "Description for hoarding 42",
         currentPrice: 125000,
@@ -796,7 +796,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-43",
-        title: "Hoarding Title 43",
+        title: "  43",
         image: "/ahmedabad/image46.jpg?height=600&width=800&text=Ahmedabad+Hoarding+43",
         description: "Description for hoarding 43",
         currentPrice: 90000,
@@ -805,7 +805,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-44",
-        title: "Hoarding Title 44",
+        title: "  44",
         image: "/ahmedabad/image47.jpg?height=600&width=800&text=Ahmedabad+Hoarding+44",
         description: "Description for hoarding 44",
         currentPrice: 30000,
@@ -814,7 +814,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-45",
-        title: "Hoarding Title 45",
+        title: "  45",
         image: "/ahmedabad/image48.jpg?height=600&width=800&text=Ahmedabad+Hoarding+45",
         description: "Description for hoarding 45",
         currentPrice: 100000,
@@ -823,7 +823,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-46",
-        title: "Hoarding Title 46",
+        title: "  46",
         image: "/ahmedabad/image49.jpg?height=600&width=800&text=Ahmedabad+Hoarding+46",
         description: "Description for hoarding 46",
         currentPrice: 130000,
@@ -832,7 +832,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-47",
-        title: "Hoarding Title 47",
+        title: "  47",
         image: "/ahmedabad/image50.jpg?height=600&width=800&text=Ahmedabad+Hoarding+47",
         description: "Description for hoarding 47",
         currentPrice: 50000,
@@ -841,7 +841,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-48",
-        title: "Hoarding Title 48",
+        title: "  48",
         image: "/ahmedabad/image51.jpg?height=600&width=800&text=Ahmedabad+Hoarding+48",
         description: "Description for hoarding 48",
         currentPrice: 150000,
@@ -850,7 +850,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-49",
-        title: "Hoarding Title 49",
+        title: "  49",
         image: "/ahmedabad/image52.jpg?height=600&width=800&text=Ahmedabad+Hoarding+49",
         description: "Description for hoarding 49",
         currentPrice: 150000,
@@ -859,7 +859,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-50",
-        title: "Hoarding Title 50",
+        title: "  50",
         image: "/ahmedabad/image53.jpg?height=600&width=800&text=Ahmedabad+Hoarding+50",
         description: "Description for hoarding 50",
         currentPrice: 130000,
@@ -868,7 +868,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-51",
-        title: "Hoarding Title 51",
+        title: "  51",
         image: "/ahmedabad/image54.jpg?height=600&width=800&text=Ahmedabad+Hoarding+51",
         description: "Description for hoarding 51",
         currentPrice: 60000,
@@ -877,7 +877,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-52",
-        title: "Hoarding Title 52",
+        title: "  52",
         image: "/ahmedabad/image55.jpg?height=600&width=800&text=Ahmedabad+Hoarding+52",
         description: "Description for hoarding 52",
         currentPrice: 180000,
@@ -886,7 +886,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-53",
-        title: "Hoarding Title 53",
+        title: "  53",
         image: "/ahmedabad/image56.jpg?height=600&width=800&text=Ahmedabad+Hoarding+53",
         description: "Description for hoarding 53",
         currentPrice: 300000,
@@ -895,7 +895,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-54",
-        title: "Hoarding Title 54",
+        title: "  54",
         image: "/ahmedabad/image57.jpg?height=600&width=800&text=Ahmedabad+Hoarding+54",
         description: "Description for hoarding 54",
         currentPrice: 100000,
@@ -904,7 +904,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-55",
-        title: "Hoarding Title 55",
+        title: "  55",
         image: "/ahmedabad/image58.jpg?height=600&width=800&text=Ahmedabad+Hoarding+55",
         description: "Description for hoarding 55",
         currentPrice: 150000,
@@ -913,7 +913,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-56",
-        title: "Hoarding Title 56",
+        title: "  56",
         image: "/ahmedabad/image59.jpg?height=600&width=800&text=Ahmedabad+Hoarding+56",
         description: "Description for hoarding 56",
         currentPrice: 30000,
@@ -922,7 +922,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-57",
-        title: "Hoarding Title 57",
+        title: "  57",
         image: "/ahmedabad/image60.jpg?height=600&width=800&text=Ahmedabad+Hoarding+57",
         description: "Description for hoarding 57",
         currentPrice: 20000,
@@ -931,7 +931,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-58",
-        title: "Hoarding Title 58",
+        title: "  58",
         image: "/ahmedabad/image61.jpg?height=600&width=800&text=Ahmedabad+Hoarding+58",
         description: "Description for hoarding 58",
         currentPrice: 230000,
@@ -940,7 +940,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-59",
-        title: "Hoarding Title 59",
+        title: "  59",
         image: "/ahmedabad/image62.jpg?height=600&width=800&text=Ahmedabad+Hoarding+59",
         description: "Description for hoarding 59",
         currentPrice: 230000,
@@ -949,7 +949,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-60",
-        title: "Hoarding Title 60",
+        title: "  60",
         image: "/ahmedabad/image63.jpg?height=600&width=800&text=Ahmedabad+Hoarding+60",
         description: "Description for hoarding 60",
         currentPrice: 250000,
@@ -958,7 +958,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-61",
-        title: "Hoarding Title 61",
+        title: "  61",
         image: "/ahmedabad/image64.jpg?height=600&width=800&text=Ahmedabad+Hoarding+61",
         description: "Description for hoarding 61",
         currentPrice: 125000,
@@ -967,7 +967,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-62",
-        title: "Hoarding Title 62",
+        title: "  62",
         image: "/ahmedabad/image65.jpg?height=600&width=800&text=Ahmedabad+Hoarding+62",
         description: "Description for hoarding 62",
         currentPrice: 120000,
@@ -976,7 +976,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-63",
-        title: "Hoarding Title 63",
+        title: "  63",
         image: "/ahmedabad/image66.jpg?height=600&width=800&text=Ahmedabad+Hoarding+63",
         description: "Description for hoarding 63",
         currentPrice: 200000,
@@ -985,7 +985,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-64",
-        title: "Hoarding Title 64",
+        title: "  64",
         image: "/ahmedabad/image67.jpg?height=600&width=800&text=Ahmedabad+Hoarding+64",
         description: "Description for hoarding 64",
         currentPrice: 120000,
@@ -994,7 +994,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-65",
-        title: "Hoarding Title 65",
+        title: "  65",
         image: "/ahmedabad/image68.jpg?height=600&width=800&text=Ahmedabad+Hoarding+65",
         description: "Description for hoarding 65",
         currentPrice: 80000,
@@ -1003,7 +1003,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-66",
-        title: "Hoarding Title 66",
+        title: "  66",
         image: "/ahmedabad/image69.jpg?height=600&width=800&text=Ahmedabad+Hoarding+66",
         description: "Description for hoarding 66",
         currentPrice: 60000,
@@ -1012,7 +1012,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-67",
-        title: "Hoarding Title 67",
+        title: "  67",
         image: "/ahmedabad/image70.jpg?height=600&width=800&text=Ahmedabad+Hoarding+67",
         description: "Description for hoarding 67",
         currentPrice: 50000,
@@ -1021,7 +1021,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-68",
-        title: "Hoarding Title 68",
+        title: "  68",
         image: "/ahmedabad/image71.jpg?height=600&width=800&text=Ahmedabad+Hoarding+68",
         description: "Description for hoarding 68",
         currentPrice: 75000,
@@ -1030,7 +1030,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-69",
-        title: "Hoarding Title 69",
+        title: "  69",
         image: "/ahmedabad/image72.jpg?height=600&width=800&text=Ahmedabad+Hoarding+69",
         description: "Description for hoarding 69",
         currentPrice: 350000,
@@ -1039,7 +1039,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-70",
-        title: "Hoarding Title 70",
+        title: "  70",
         image: "/ahmedabad/image73.jpg?height=600&width=800&text=Ahmedabad+Hoarding+70",
         description: "Description for hoarding 70",
         currentPrice: 20000,
@@ -1048,7 +1048,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-71",
-        title: "Hoarding Title 71",
+        title: "  71",
         image: "/ahmedabad/image74.jpg?height=600&width=800&text=Ahmedabad+Hoarding+71",
         description: "Description for hoarding 71",
         currentPrice: 120000,
@@ -1057,7 +1057,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-72",
-        title: "Hoarding Title 72",
+        title: "  72",
         image: "/ahmedabad/image75.jpg?height=600&width=800&text=Ahmedabad+Hoarding+72",
         description: "Description for hoarding 72",
         currentPrice: 200000,
@@ -1066,7 +1066,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-73",
-        title: "Hoarding Title 73",
+        title: "  73",
         image: "/ahmedabad/image76.jpg?height=600&width=800&text=Ahmedabad+Hoarding+73",
         description: "Description for hoarding 73",
         currentPrice: 200000,
@@ -1075,7 +1075,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-74",
-        title: "Hoarding Title 74",
+        title: "  74",
         image: "/ahmedabad/image77.jpg?height=600&width=800&text=Ahmedabad+Hoarding+74",
         description: "Description for hoarding 74",
         currentPrice: 80000,
@@ -1084,7 +1084,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-75",
-        title: "Hoarding Title 75",
+        title: "  75",
         image: "/ahmedabad/image78.jpg?height=600&width=800&text=Ahmedabad+Hoarding+75",
         description: "Description for hoarding 75",
         currentPrice: 80000,
@@ -1093,7 +1093,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-76",
-        title: "Hoarding Title 76",
+        title: "  76",
         image: "/ahmedabad/image79.jpg?height=600&width=800&text=Ahmedabad+Hoarding+76",
         description: "Description for hoarding 76",
         currentPrice: 120000,
@@ -1102,7 +1102,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-77",
-        title: "Hoarding Title 77",
+        title: "  77",
         image: "/ahmedabad/image80.jpg?height=600&width=800&text=Ahmedabad+Hoarding+77",
         description: "Description for hoarding 77",
         currentPrice: 120000,
@@ -1111,7 +1111,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-78",
-        title: "Hoarding Title 78",
+        title: "  78",
         image: "/ahmedabad/image81.jpg?height=600&width=800&text=Ahmedabad+Hoarding+78",
         description: "Description for hoarding 78",
         currentPrice: 120000,
@@ -1120,7 +1120,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-79",
-        title: "Hoarding Title 79",
+        title: "  79",
         image: "/ahmedabad/image82.jpg?height=600&width=800&text=Ahmedabad+Hoarding+79",
         description: "Description for hoarding 79",
         currentPrice: 120000,
@@ -1129,7 +1129,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-80",
-        title: "Hoarding Title 80",
+        title: "  80",
         image: "/ahmedabad/image83.jpg?height=600&width=800&text=Ahmedabad+Hoarding+80",
         description: "Description for hoarding 80",
         currentPrice: 70000,
@@ -1138,7 +1138,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-81",
-        title: "Hoarding Title 81",
+        title: "  81",
         image: "/ahmedabad/image84.jpg?height=600&width=800&text=Ahmedabad+Hoarding+81",
         description: "Description for hoarding 81",
         currentPrice: 70000,
@@ -1147,7 +1147,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-82",
-        title: "Hoarding Title 82",
+        title: "  82",
         image: "/ahmedabad/image85.jpg?height=600&width=800&text=Ahmedabad+Hoarding+82",
         description: "Description for hoarding 82",
         currentPrice: 40000,
@@ -1156,7 +1156,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-83",
-        title: "Hoarding Title 83",
+        title: "  83",
         image: "/ahmedabad/image86.jpg?height=600&width=800&text=Ahmedabad+Hoarding+83",
         description: "Description for hoarding 83",
         currentPrice: 40000,
@@ -1165,7 +1165,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-84",
-        title: "Hoarding Title 84",
+        title: "  84",
         image: "/ahmedabad/image87.jpg?height=600&width=800&text=Ahmedabad+Hoarding+84",
         description: "Description for hoarding 84",
         currentPrice: 150000,
@@ -1174,7 +1174,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-85",
-        title: "Hoarding Title 85",
+        title: "  85",
         image: "/ahmedabad/image88.jpg?height=600&width=800&text=Ahmedabad+Hoarding+85",
         description: "Description for hoarding 85",
         currentPrice: 35000,
@@ -1183,7 +1183,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-86",
-        title: "Hoarding Title 86",
+        title: "  86",
         image: "/ahmedabad/image89.jpg?height=600&width=800&text=Ahmedabad+Hoarding+86",
         description: "Description for hoarding 86",
         currentPrice: 35000,
@@ -1192,7 +1192,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-87",
-        title: "Hoarding Title 87",
+        title: "  87",
         image: "/ahmedabad/image90.jpg?height=600&width=800&text=Ahmedabad+Hoarding+87",
         description: "Description for hoarding 87",
         currentPrice: 50000,
@@ -1201,7 +1201,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-88",
-        title: "Hoarding Title 88",
+        title: "  88",
         image: "/ahmedabad/image91.jpg?height=600&width=800&text=Ahmedabad+Hoarding+88",
         description: "Description for hoarding 88",
         currentPrice: 150000,
@@ -1210,7 +1210,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-89",
-        title: "Hoarding Title 89",
+        title: "  89",
         image: "/ahmedabad/image92.jpg?height=600&width=800&text=Ahmedabad+Hoarding+89",
         description: "Description for hoarding 89",
         currentPrice: 150000,
@@ -1219,7 +1219,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-90",
-        title: "Hoarding Title 90",
+        title: "  90",
         image: "/ahmedabad/image93.jpg?height=600&width=800&text=Ahmedabad+Hoarding+90",
         description: "Description for hoarding 90",
         currentPrice: 20000,
@@ -1228,7 +1228,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-91",
-        title: "Hoarding Title 91",
+        title: "  91",
         image: "/ahmedabad/image94.jpg?height=600&width=800&text=Ahmedabad+Hoarding+91",
         description: "Description for hoarding 91",
         currentPrice: 20000,
@@ -1237,7 +1237,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-92",
-        title: "Hoarding Title 92",
+        title: "  92",
         image: "/ahmedabad/image95.jpg?height=600&width=800&text=Ahmedabad+Hoarding+92",
         description: "Description for hoarding 92",
         currentPrice: 125000,
@@ -1246,7 +1246,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-93",
-        title: "Hoarding Title 93",
+        title: "  93",
         image: "/ahmedabad/image96.jpg?height=600&width=800&text=Ahmedabad+Hoarding+93",
         description: "Description for hoarding 93",
         currentPrice: 150000,
@@ -1255,7 +1255,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-94",
-        title: "Hoarding Title 94",
+        title: "  94",
         image: "/ahmedabad/image97.jpg?height=600&width=800&text=Ahmedabad+Hoarding+94",
         description: "Description for hoarding 94",
         currentPrice: 150000,
@@ -1264,7 +1264,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-95",
-        title: "Hoarding Title 95",
+        title: "  95",
         image: "/ahmedabad/image98.jpg?height=600&width=800&text=Ahmedabad+Hoarding+95",
         description: "Description for hoarding 95",
         currentPrice: 120000,
@@ -1273,7 +1273,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-96",
-        title: "Hoarding Title 96",
+        title: "  96",
         image: "/ahmedabad/image99.jpg?height=600&width=800&text=Ahmedabad+Hoarding+96",
         description: "Description for hoarding 96",
         currentPrice: 110000,
@@ -1282,7 +1282,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-97",
-        title: "Hoarding Title 97",
+        title: "  97",
         image: "/ahmedabad/image100.jpg?height=600&width=800&text=Ahmedabad+Hoarding+97",
         description: "Description for hoarding 97",
         currentPrice: 80000,
@@ -1291,7 +1291,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-98",
-        title: "Hoarding Title 98",
+        title: "  98",
         image: "/ahmedabad/image101.jpg?height=600&width=800&text=Ahmedabad+Hoarding+98",
         description: "Description for hoarding 98",
         currentPrice: 45000,
@@ -1300,7 +1300,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-99",
-        title: "Hoarding Title 99",
+        title: "  99",
         image: "/ahmedabad/image102.jpg?height=600&width=800&text=Ahmedabad+Hoarding+99",
         description: "Description for hoarding 99",
         currentPrice: 50000,
@@ -1309,7 +1309,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-100",
-        title: "Hoarding Title 100",
+        title: "  100",
         image: "/ahmedabad/image103.jpg?height=600&width=800&text=Ahmedabad+Hoarding+100",
         description: "Description for hoarding 100",
         currentPrice: 200000,
@@ -1318,7 +1318,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-101",
-        title: "Hoarding Title 101",
+        title: "  101",
         image: "/ahmedabad/image104.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 101",
         currentPrice: 200000,
@@ -1327,7 +1327,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-102",
-        title: "Hoarding Title 102",
+        title: "  102",
         image: "/ahmedabad/image105.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 102",
         currentPrice: 60000,
@@ -1336,7 +1336,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-103",
-        title: "Hoarding Title 103",
+        title: "  103",
         image: "/ahmedabad/image106.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 103",
         currentPrice: 25000,
@@ -1345,7 +1345,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-104",
-        title: "Hoarding Title 104",
+        title: "  104",
         image: "/ahmedabad/image107.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 104",
         currentPrice: 80000,
@@ -1354,7 +1354,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-105",
-        title: "Hoarding Title 105",
+        title: "  105",
         image: "/ahmedabad/image108.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 105",
         currentPrice: 160000,
@@ -1363,7 +1363,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-106",
-        title: "Hoarding Title 106",
+        title: "  106",
         image: "/ahmedabad/image109.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 106",
         currentPrice: 140000,
@@ -1372,7 +1372,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-107",
-        title: "Hoarding Title 107",
+        title: "  107",
         image: "/ahmedabad/image110.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 107",
         currentPrice: 140000,
@@ -1381,7 +1381,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-108",
-        title: "Hoarding Title 108",
+        title: "  108",
         image: "/ahmedabad/image111.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 108",
         currentPrice: 140000,
@@ -1390,7 +1390,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-109",
-        title: "Hoarding Title 109",
+        title: "  109",
         image: "/ahmedabad/image112.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 109",
         currentPrice: 140000,
@@ -1399,7 +1399,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-110",
-        title: "Hoarding Title 110",
+        title: "  110",
         image: "/ahmedabad/image113.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 110",
         currentPrice: 140000,
@@ -1408,7 +1408,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-111",
-        title: "Hoarding Title 111",
+        title: "  111",
         image: "/ahmedabad/image114.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 111",
         currentPrice: 140000,
@@ -1417,7 +1417,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-112",
-        title: "Hoarding Title 112",
+        title: "  112",
         image: "/ahmedabad/image115.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 112",
         currentPrice: 140000,
@@ -1426,7 +1426,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-113",
-        title: "Hoarding Title 113",
+        title: "  113",
         image: "/ahmedabad/image116.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 113",
         currentPrice: 140000,
@@ -1435,7 +1435,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-114",
-        title: "Hoarding Title 114",
+        title: "  114",
         image: "/ahmedabad/image117.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 114",
         currentPrice: 300000,
@@ -1444,7 +1444,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-115",
-        title: "Hoarding Title 115",
+        title: "  115",
         image: "/ahmedabad/image118.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 115",
         currentPrice: 140000,
@@ -1453,7 +1453,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-116",
-        title: "Hoarding Title 116",
+        title: "  116",
         image: "/ahmedabad/image119.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 116",
         currentPrice: 130000,
@@ -1462,7 +1462,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-117",
-        title: "Hoarding Title 117",
+        title: "  117",
         image: "/ahmedabad/image120.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 117",
         currentPrice: 300000,
@@ -1471,7 +1471,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-118",
-        title: "Hoarding Title 118",
+        title: "  118",
         image: "/ahmedabad/image121.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 118",
         currentPrice: 300000,
@@ -1480,7 +1480,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-119",
-        title: "Hoarding Title 119",
+        title: "  119",
         image: "/ahmedabad/image122.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 119",
         currentPrice: 300000,
@@ -1489,7 +1489,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-120",
-        title: "Hoarding Title 120",
+        title: "  120",
         image: "/ahmedabad/image123.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 120",
         currentPrice: 400000,
@@ -1498,7 +1498,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-121",
-        title: "Hoarding Title 121",
+        title: "  121",
         image: "/ahmedabad/image124.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 121",
         currentPrice: 250000,
@@ -1507,7 +1507,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-122",
-        title: "Hoarding Title 122",
+        title: "  122",
         image: "/ahmedabad/image125.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 122",
         currentPrice: 250000,
@@ -1516,7 +1516,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-123",
-        title: "Hoarding Title 123",
+        title: "  123",
         image: "/ahmedabad/image126.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 123",
         currentPrice: 250000,
@@ -1525,7 +1525,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-124",
-        title: "Hoarding Title 124",
+        title: "  124",
         image: "/ahmedabad/image127.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 124",
         currentPrice: 400000,
@@ -1534,7 +1534,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-125",
-        title: "Hoarding Title 125",
+        title: "  125",
         image: "/ahmedabad/image128.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 125",
         currentPrice: 40000,
@@ -1543,7 +1543,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-126",
-        title: "Hoarding Title 126",
+        title: "  126",
         image: "/ahmedabad/image129.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 126",
         currentPrice: 150000,
@@ -1552,7 +1552,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-127",
-        title: "Hoarding Title 127",
+        title: "  127",
         image: "/ahmedabad/image130.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 127",
         currentPrice: 300000,
@@ -1561,7 +1561,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-128",
-        title: "Hoarding Title 128",
+        title: "  128",
         image: "/ahmedabad/image131.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 128",
         currentPrice: 40000,
@@ -1570,7 +1570,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-129",
-        title: "Hoarding Title 129",
+        title: "  129",
         image: "/ahmedabad/image132.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 129",
         currentPrice: 250000,
@@ -1579,7 +1579,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-130",
-        title: "Hoarding Title 130",
+        title: "  130",
         image: "/ahmedabad/image133.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 130",
         currentPrice: 300000,
@@ -1588,7 +1588,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-131",
-        title: "Hoarding Title 131",
+        title: "  131",
         image: "/ahmedabad/image134.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 131",
         currentPrice: 250000,
@@ -1597,7 +1597,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-132",
-        title: "Hoarding Title 132",
+        title: "  132",
         image: "/ahmedabad/image135.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 132",
         currentPrice: 250000,
@@ -1606,7 +1606,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-133",
-        title: "Hoarding Title 133",
+        title: "  133",
         image: "/ahmedabad/image136.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 133",
         currentPrice: 300000,
@@ -1615,7 +1615,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-134",
-        title: "Hoarding Title 134",
+        title: "  134",
         image: "/ahmedabad/image137.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 134",
         currentPrice: 300000,
@@ -1624,7 +1624,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-135",
-        title: "Hoarding Title 135",
+        title: "  135",
         image: "/ahmedabad/image138.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 135",
         currentPrice: 250000,
@@ -1633,7 +1633,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-136",
-        title: "Hoarding Title 136",
+        title: "  136",
         image: "/ahmedabad/image139.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 136",
         currentPrice: 150000,
@@ -1642,7 +1642,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-137",
-        title: "Hoarding Title 137",
+        title: "  137",
         image: "/ahmedabad/image140.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 137",
         currentPrice: 100000,
@@ -1651,7 +1651,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-138",
-        title: "Hoarding Title 138",
+        title: "  138",
         image: "/ahmedabad/image141.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 138",
         currentPrice: 125000,
@@ -1660,7 +1660,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-139",
-        title: "Hoarding Title 139",
+        title: "  139",
         image: "/ahmedabad/image142.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 139",
         currentPrice: 125000,
@@ -1669,7 +1669,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-140",
-        title: "Hoarding Title 140",
+        title: "  140",
         image: "/ahmedabad/image143.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 140",
         currentPrice: 350000,
@@ -1678,7 +1678,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-141",
-        title: "Hoarding Title 141",
+        title: "  141",
         image: "/ahmedabad/image144.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 141",
         currentPrice: 250000,
@@ -1687,7 +1687,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-142",
-        title: "Hoarding Title 142",
+        title: "  142",
         image: "/ahmedabad/image145.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 142",
         currentPrice: 450000,
@@ -1696,7 +1696,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-143",
-        title: "Hoarding Title 143",
+        title: "  143",
         image: "/ahmedabad/image146.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 143",
         currentPrice: 200000,
@@ -1705,7 +1705,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-144",
-        title: "Hoarding Title 144",
+        title: "  144",
         image: "/ahmedabad/image147.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 144",
         currentPrice: 300000,
@@ -1714,7 +1714,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-145",
-        title: "Hoarding Title 145",
+        title: "  145",
         image: "/ahmedabad/image148.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 145",
         currentPrice: 240000,
@@ -1723,7 +1723,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-146",
-        title: "Hoarding Title 146",
+        title: "  146",
         image: "/ahmedabad/image149.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 146",
         currentPrice: 300000,
@@ -1732,7 +1732,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-147",
-        title: "Hoarding Title 147",
+        title: "  147",
         image: "/ahmedabad/image150.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 147",
         currentPrice: 250000,
@@ -1741,7 +1741,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-148",
-        title: "Hoarding Title 148",
+        title: "  148",
         image: "/ahmedabad/image151.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 148",
         currentPrice: 240000,
@@ -1750,7 +1750,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-149",
-        title: "Hoarding Title 149",
+        title: "  149",
         image: "/ahmedabad/image152.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 149",
         currentPrice: 240000,
@@ -1759,7 +1759,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-150",
-        title: "Hoarding Title 150",
+        title: "  150",
         image: "/ahmedabad/image153.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 150",
         currentPrice: 80000,
@@ -1768,7 +1768,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-151",
-        title: "Hoarding Title 151",
+        title: "  151",
         image: "/ahmedabad/image154.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 151",
         currentPrice: 150000,
@@ -1777,7 +1777,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-152",
-        title: "Hoarding Title 152",
+        title: "  152",
         image: "/ahmedabad/image155.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 152",
         currentPrice: 350000,
@@ -1786,7 +1786,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-153",
-        title: "Hoarding Title 153",
+        title: "  153",
         image: "/ahmedabad/image156.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 153",
         currentPrice: 200000,
@@ -1795,7 +1795,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-154",
-        title: "Hoarding Title 154",
+        title: "  154",
         image: "/ahmedabad/image157.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 154",
         currentPrice: 250000,
@@ -1804,7 +1804,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-155",
-        title: "Hoarding Title 155",
+        title: "  155",
         image: "/ahmedabad/image158.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 155",
         currentPrice: 600000,
@@ -1813,7 +1813,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-156",
-        title: "Hoarding Title 156",
+        title: "  156",
         image: "/ahmedabad/image159.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 156",
         currentPrice: 220000,
@@ -1822,7 +1822,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-157",
-        title: "Hoarding Title 157",
+        title: "  157",
         image: "/ahmedabad/image160.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 157",
         currentPrice: 250000,
@@ -1831,7 +1831,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-158",
-        title: "Hoarding Title 158",
+        title: "  158",
         image: "/ahmedabad/image161.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 158",
         currentPrice: 300000,
@@ -1840,7 +1840,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-159",
-        title: "Hoarding Title 159",
+        title: "  159",
         image: "/ahmedabad/image162.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 159",
         currentPrice: 330000,
@@ -1849,7 +1849,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-160",
-        title: "Hoarding Title 160",
+        title: "  160",
         image: "/ahmedabad/image163.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 160",
         currentPrice: 300000,
@@ -1858,7 +1858,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-161",
-        title: "Hoarding Title 161",
+        title: "  161",
         image: "/ahmedabad/image164.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 161",
         currentPrice: 400000,
@@ -1867,7 +1867,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-162",
-        title: "Hoarding Title 162",
+        title: "  162",
         image: "/ahmedabad/image165.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 162",
         currentPrice: 270000,
@@ -1876,7 +1876,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-163",
-        title: "Hoarding Title 163",
+        title: "  163",
         image: "/ahmedabad/image166.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 163",
         currentPrice: 260000,
@@ -1885,7 +1885,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-164",
-        title: "Hoarding Title 164",
+        title: "  164",
         image: "/ahmedabad/image167.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 164",
         currentPrice: 80000,
@@ -1894,7 +1894,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-165",
-        title: "Hoarding Title 165",
+        title: "  165",
         image: "/ahmedabad/image168.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 165",
         currentPrice: 250000,
@@ -1903,7 +1903,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-166",
-        title: "Hoarding Title 166",
+        title: "  166",
         image: "/ahmedabad/image169.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 166",
         currentPrice: 250000,
@@ -1912,7 +1912,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-167",
-        title: "Hoarding Title 167",
+        title: "  167",
         image: "/ahmedabad/image170.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 167",
         currentPrice: 300000,
@@ -1921,7 +1921,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-168",
-        title: "Hoarding Title 168",
+        title: "  168",
         image: "/ahmedabad/image171.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 168",
         currentPrice: 40000,
@@ -1930,7 +1930,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-169",
-        title: "Hoarding Title 169",
+        title: "  169",
         image: "/ahmedabad/image172.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 169",
         currentPrice: 40000,
@@ -1939,7 +1939,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-170",
-        title: "Hoarding Title 170",
+        title: "  170",
         image: "/ahmedabad/image173.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 170",
         currentPrice: 300000,
@@ -1948,7 +1948,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-171",
-        title: "Hoarding Title 171",
+        title: "  171",
         image: "/ahmedabad/image174.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 171",
         currentPrice: 40000,
@@ -1957,7 +1957,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-172",
-        title: "Hoarding Title 172",
+        title: "  172",
         image: "/ahmedabad/image175.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 172",
         currentPrice: 40000,
@@ -1966,7 +1966,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-173",
-        title: "Hoarding Title 173",
+        title: "  173",
         image: "/ahmedabad/image176.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 173",
         currentPrice: 40000,
@@ -1975,7 +1975,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-174",
-        title: "Hoarding Title 174",
+        title: "  174",
         image: "/ahmedabad/image177.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 174",
         currentPrice: 30000,
@@ -1984,7 +1984,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-175",
-        title: "Hoarding Title 175",
+        title: "  175",
         image: "/ahmedabad/image178.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 175",
         currentPrice: 30000,
@@ -1993,7 +1993,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-176",
-        title: "Hoarding Title 176",
+        title: "  176",
         image: "/ahmedabad/image179.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 176",
         currentPrice: 50000,
@@ -2002,7 +2002,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-177",
-        title: "Hoarding Title 177",
+        title: "  177",
         image: "/ahmedabad/image180.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 177",
         currentPrice: 50000,
@@ -2011,7 +2011,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-178",
-        title: "Hoarding Title 178",
+        title: "  178",
         image: "/ahmedabad/image181.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 178",
         currentPrice: 50000,
@@ -2020,7 +2020,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-179",
-        title: "Hoarding Title 179",
+        title: "  179",
         image: "/ahmedabad/image182.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 179",
         currentPrice: 130000,
@@ -2029,7 +2029,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-180",
-        title: "Hoarding Title 180",
+        title: "  180",
         image: "/ahmedabad/image183.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 180",
         currentPrice: 350000,
@@ -2038,7 +2038,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-181",
-        title: "Hoarding Title 181",
+        title: "  181",
         image: "/ahmedabad/image184.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 181",
         currentPrice: 20000,
@@ -2047,7 +2047,7 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-182",
-        title: "Hoarding Title 182",
+        title: "  182",
         image: "/ahmedabad/image185.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 182",
         currentPrice: 200000,
@@ -2056,14 +2056,14 @@ const cityHoardings: Record<string, CityData> = {
       },
       {
         id: "ahmedabad-183",
-        title: "Hoarding Title 183",
+        title: "  183",
         image: "/ahmedabad/image186.jpg?height=600&width=800&text=Ahmedabad+Hoarding",
         description: "Description for hoarding 183",
         currentPrice: 500000,
         previousPrice: 510000,
         mapLink: "https://goo.gl/maps/location183"
       },
-     
+
     ],
   },
 };
@@ -2073,7 +2073,7 @@ export default function CityHoardingsPage() {
   const router = useRouter();
   const [city, setCity] = useState<CityData | null>(null);
   const [selectedHoarding, setSelectedHoarding] = useState<Hoarding | null>(null);
-
+  const [hoverPreview, setHoverPreview] = useState<Hoarding | null>(null);
   useEffect(() => {
     if (params.id && typeof params.id === "string") {
       const cityData = cityHoardings[params.id];
@@ -2179,7 +2179,12 @@ export default function CityHoardingsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative h-48 mb-4 overflow-hidden rounded-md">
+                <div
+                  className="relative h-48 mb-4 overflow-hidden rounded-md"
+                  onMouseEnter={() => setHoverPreview(hoarding)}
+                  onMouseLeave={() => setHoverPreview(null)}
+                >
+
                   <Image
                     src={hoarding.image}
                     alt={hoarding.title}
@@ -2187,6 +2192,23 @@ export default function CityHoardingsPage() {
                     objectFit="cover"
                     className="h-[600px] w-[80px]"
                   />
+                  {/* {hoverPreview && (
+                    <div className="fixed right-8 top-1/4 z-50 bg-white rounded-lg p-6 shadow-2xl max-w-md animate-fade-in">
+                      <h3 className="text-xl font-bold mb-2 text-[#3982c3]">{hoverPreview.title}</h3>
+                      <div className="relative h-64 w-full mb-4 overflow-hidden rounded-lg">
+                        <Image
+                          src={hoverPreview.image || "/placeholder.svg"}
+                          alt={hoverPreview.title}
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </div>
+                      <p className="text-gray-500 mb-2">{hoverPreview.description}</p>
+                      <p className="text-gray-500 font-bold">
+                        Current Price: ₹{hoverPreview.currentPrice.toLocaleString()}
+                      </p>
+                    </div>
+                  )} */}
                   <a
                     href={hoarding.mapLink}
                     target="_blank"
@@ -2197,6 +2219,7 @@ export default function CityHoardingsPage() {
                     <MapPin className="h-6 w-6 text-[#3982c3]" />
                   </a>
                 </div>
+
                 <p className="text-sm text-gray-500 mb-2">{hoarding.description}</p>
                 <p className="text-sm text-gray-500 font-bold">
                   Current Price: ₹{hoarding.currentPrice.toLocaleString()}
@@ -2214,6 +2237,7 @@ export default function CityHoardingsPage() {
                 </Button>
               </CardFooter>
             </Card>
+
           </motion.div>
         ))}
       </div>
