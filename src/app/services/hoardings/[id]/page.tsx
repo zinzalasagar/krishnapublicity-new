@@ -2074,6 +2074,7 @@ export default function CityHoardingsPage() {
   const [city, setCity] = useState<CityData | null>(null);
   const [selectedHoarding, setSelectedHoarding] = useState<Hoarding | null>(null);
   const [hoverPreview, setHoverPreview] = useState<Hoarding | null>(null);
+  console.log("Selected Hoarding:", hoverPreview);
   useEffect(() => {
     if (params.id && typeof params.id === "string") {
       const cityData = cityHoardings[params.id];
