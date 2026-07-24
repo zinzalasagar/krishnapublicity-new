@@ -202,7 +202,7 @@ export default function About() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="space-y-3"
                 >
-                  <div className="inline-block bg-[#1B2642] px-6 py-2 rounded-xl shadow-lg border border-white/10 backdrop-blur-sm">
+                  <div className="inline-block bg-[#0F1729] px-6 py-2 rounded-xl shadow-lg border border-white/10 backdrop-blur-sm">
                     <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight">
                       {activeMember?.name}
                     </h3>
