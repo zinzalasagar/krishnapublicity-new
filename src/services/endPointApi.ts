@@ -5,6 +5,10 @@ export interface EndPointApi {
 
   // Auth
   authLogin: string;
+  authRegister: string;
+  authForgotPassword: string;
+  authResetPassword: (token: string) => string;
+  authProfile: string;
 
   // Content Sections
   home: string;
@@ -39,6 +43,10 @@ const endPointApi: EndPointApi = {
 
   // Auth
   authLogin: 'auth/login',
+  authRegister: 'auth/register',
+  authForgotPassword: 'auth/forgotpassword',
+  authResetPassword: (token: string) => `auth/resetpassword/${token}`,
+  authProfile: 'auth/profile',
 
   // Content Sections
   home: 'home',

@@ -111,8 +111,8 @@ export default function Navbar() {
                       className="relative cursor-pointer group py-1 block px-2"
                     >
                       <span className={`relative z-10 text-xs font-bold tracking-widest uppercase transition-colors duration-500 ${activeSection === section
-                          ? (scrolled ? "text-theme-navy" : "text-white")
-                          : (scrolled ? "text-theme-navy/60 group-hover:text-theme-navy" : "text-white/70 group-hover:text-white")
+                        ? (scrolled ? "text-theme-navy" : "text-white")
+                        : (scrolled ? "text-theme-navy/60 group-hover:text-theme-navy" : "text-white/70 group-hover:text-white")
                         }`}>
                         {label}
                       </span>

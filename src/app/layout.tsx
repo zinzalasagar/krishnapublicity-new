@@ -38,6 +38,11 @@ export default function RootLayout({
       return;
     }
 
+    // Disable Lenis on mobile devices completely to allow native scrolling
+    if (window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -45,7 +50,6 @@ export default function RootLayout({
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 0.8,
-      touchMultiplier: 1.5,
     })
 
     function raf(time: number) {

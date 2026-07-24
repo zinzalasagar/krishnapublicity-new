@@ -17,7 +17,7 @@ export default function Preloader() {
     
     return () => {
       clearTimeout(timer);
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, []);
 

@@ -64,6 +64,7 @@ export default function AdminSettings() {
           }
         }));
       }
+
     } catch (error) {
       console.error('Error fetching settings:', error);
       toast.error('Failed to load site settings');

@@ -14,18 +14,22 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     // Basic auth check
     const token = localStorage.getItem('token');
     
-    // If no token and not on login page, redirect
-    if (!token && pathname !== '/admin/login') {
+    // Allow public pages for non-authenticated users
+    const publicPages = ['/admin/login', '/admin/forgot-password'];
+    const isPublicPage = publicPages.includes(pathname) || pathname.startsWith('/admin/reset-password');
+
+    // If no token and not on public page, redirect
+    if (!token && !isPublicPage) {
       router.push('/admin/login');
     } else if (token) {
       setIsAuthenticated(true);
       // If has token and trying to access login, redirect to dashboard
-      if (pathname === '/admin/login') {
+      if (pathname === '/admin/login' || pathname === '/admin/forgot-password') {
         router.push('/admin');
       }
     } else {
-       // On login page without token
-       setIsAuthenticated(true); // Allow render of login page
+       // On public page without token
+       setIsAuthenticated(true); // Allow render of public page
     }
   }, [pathname, router]);
 
@@ -39,8 +43,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return <div className="min-h-screen bg-theme-cream flex items-center justify-center">Loading...</div>;
   }
 
-  // Don't show sidebar on login page
-  if (pathname === '/admin/login') {
+  // Don't show sidebar on public pages
+  if (pathname === '/admin/login' || pathname === '/admin/forgot-password' || pathname.startsWith('/admin/reset-password')) {
     return <>{children}</>;
   }
 
@@ -79,7 +83,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </button>
         </div>
         
-        <nav className="flex-1 p-4 space-y-2 mt-4">
+        <nav className="flex-1 overflow-y-auto p-4 space-y-2 mt-4">
           <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-4 px-4">Management</div>
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -152,6 +156,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 : pathname === '/admin/income' ? 'Income (આવક)' 
                 : pathname === '/admin/expense' ? 'Expense (જાવક)' 
                 : pathname === '/admin/printing' ? 'Printing (પ્રિન્ટીંગ)' 
+                : pathname === '/admin/profile' ? 'Admin Profile'
                 : 'Partners Gallery'}
              </span>
           </div>
@@ -170,9 +175,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               />
             </div>
             
-            <div className="w-10 h-10 rounded-full bg-[#1B2642] text-white flex items-center justify-center font-bold text-sm shadow-sm cursor-pointer">
+            <Link href="/admin/profile" className="w-10 h-10 rounded-full bg-[#1B2642] text-white flex items-center justify-center font-bold text-sm shadow-sm cursor-pointer hover:bg-[#1B2642]/90 transition-colors">
               AD
-            </div>
+            </Link>
           </div>
         </header>
 
@@ -184,9 +189,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </button>
             <h1 className="ml-4 text-xl font-serif font-bold text-theme-navy">Krishna.</h1>
           </div>
-          <div className="w-8 h-8 rounded-full bg-[#1B2642] text-white flex items-center justify-center font-bold text-xs">
+          <Link href="/admin/profile" className="w-8 h-8 rounded-full bg-[#1B2642] text-white flex items-center justify-center font-bold text-xs hover:bg-[#1B2642]/90 transition-colors">
             AD
-          </div>
+          </Link>
         </header>
 
         <main className="flex-1 overflow-y-auto min-h-0 p-6 md:p-8 pt-10" data-lenis-prevent="true">
