@@ -105,6 +105,9 @@ export default function Hero() {
           <MagneticButton>
             <Button
               size="lg"
+              onClick={() => {
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="group w-full sm:w-auto h-14 px-8 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white border-0 font-semibold text-sm shadow-lg shadow-blue-500/30 hover:shadow-cyan-400/50 transition-all duration-300"
             >
               Watch Showreel
@@ -147,8 +150,8 @@ export default function Hero() {
                 onClick={() => setCurrentImage(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentImage
-                    ? "w-8 bg-white"
-                    : "w-2 bg-white/30 hover:bg-white/60"
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/30 hover:bg-white/60"
                   }`}
               />
             ))}
