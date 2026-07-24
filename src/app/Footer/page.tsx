@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram, Facebook, Twitter } from "lucide-react";
 import apiService from "@/services/apiService";
 import endPointApi from "@/services/endPointApi";
 
@@ -101,13 +101,13 @@ const Footer = () => {
             <h4 className="text-gray-400 text-xs font-semibold tracking-widest uppercase">FOLLOW ON</h4>
             <ul className="space-y-4 text-xs font-semibold tracking-widest uppercase text-gray-200">
               {settings.socialLinks.instagram && (
-                <li><a href={settings.socialLinks.instagram} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">INSTAGRAM</a></li>
+                <li><a href={settings.socialLinks.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors"><Instagram className="w-4 h-4" /> INSTAGRAM</a></li>
               )}
               {settings.socialLinks.facebook && (
-                <li><a href={settings.socialLinks.facebook} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">FACEBOOK</a></li>
+                <li><a href={settings.socialLinks.facebook} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors"><Facebook className="w-4 h-4" /> FACEBOOK</a></li>
               )}
               {settings.socialLinks.twitter && (
-                <li><a href={settings.socialLinks.twitter} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">TWITTER</a></li>
+                <li><a href={settings.socialLinks.twitter} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white transition-colors"><Twitter className="w-4 h-4" /> TWITTER</a></li>
               )}
             </ul>
           </div>
