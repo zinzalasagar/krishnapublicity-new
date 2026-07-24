@@ -13,13 +13,16 @@ export default function Preloader() {
     }, 2000); 
 
     // Prevent scrolling while loading
-    document.body.style.overflow = "hidden";
+    if (isLoading) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     
     return () => {
       clearTimeout(timer);
-      document.body.style.overflow = "";
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <AnimatePresence>
