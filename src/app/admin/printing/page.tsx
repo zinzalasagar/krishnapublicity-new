@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { Plus, Trash2, Edit, Download } from 'lucide-react';
+import { Plus, Trash2, Edit, Download, Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import apiService from '@/services/apiService';
 import endPointApi from '@/services/endPointApi';
@@ -12,6 +12,7 @@ import ConfirmModal from '@/components/admin/ConfirmModal';
 import { DateRangePicker } from '@/components/DateRangePicker';
 export default function PrintingPage() {
   const [entries, setEntries] = useState<any[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
@@ -35,6 +36,9 @@ export default function PrintingPage() {
       if (dateValue.startDate && dateValue.endDate) {
         query += `&startDate=${dateValue.startDate}&endDate=${dateValue.endDate}`;
       }
+      if (searchTerm) {
+        query += `&search=${encodeURIComponent(searchTerm)}`;
+      }
       
       const data = await apiService.get(`${endPointApi.printing}${query}`);
       if (data && data.data) {
@@ -54,8 +58,11 @@ export default function PrintingPage() {
   };
 
   useEffect(() => {
-    fetchPrintings();
-  }, [currentPage, pageSize, dateValue]);
+    const delayDebounceFn = setTimeout(() => {
+      fetchPrintings();
+    }, 300);
+    return () => clearTimeout(delayDebounceFn);
+  }, [currentPage, pageSize, dateValue, searchTerm]);
 
   const handleDelete = async () => {
     if (!deleteId) return;
@@ -107,15 +114,27 @@ export default function PrintingPage() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full">
         <div className="p-4 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <h3 className="text-lg font-bold text-[#1B2642]">પ્રિન્ટીંગ લિસ્ટ (Printing List)</h3>
-          <div className="w-full sm:w-64 relative z-20">
-            <DateRangePicker
-              startDate={dateValue.startDate}
-              endDate={dateValue.endDate}
-              onChange={(start, end) => {
-                setDateValue({ startDate: start, endDate: end });
-                setCurrentPage(1);
-              }}
-            />
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <div className="relative w-full sm:w-48 lg:w-64">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Search..." 
+                value={searchTerm}
+                onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1); }}
+                className="w-full pl-9 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#1B2642]/20 outline-none text-sm"
+              />
+            </div>
+            <div className="w-full sm:w-64 relative z-20">
+              <DateRangePicker
+                startDate={dateValue.startDate}
+                endDate={dateValue.endDate}
+                onChange={(start, end) => {
+                  setDateValue({ startDate: start, endDate: end });
+                  setCurrentPage(1);
+                }}
+              />
+            </div>
           </div>
         </div>
         <div className="overflow-x-auto min-h-[300px]">
