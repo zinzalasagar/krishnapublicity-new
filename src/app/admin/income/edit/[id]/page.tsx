@@ -104,8 +104,8 @@ export default function EditIncomePage({ params }: { params: { id: string } }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">બિલ નં (Bill No)</label>
-              <input type="text" readOnly className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 outline-none text-gray-500 font-medium" 
-                value={formData.billNumber || 'N/A'} />
+              <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1B2642]/20 outline-none" 
+                value={formData.billNumber} onChange={e => setFormData({...formData, billNumber: e.target.value})} required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">પ્રોડક્ટનું નામ (Product Name)</label>

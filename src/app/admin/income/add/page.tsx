@@ -43,6 +43,7 @@ export default function AddIncomePage() {
     try {
       await apiService.post(endPointApi.income, {
         ...formData,
+        billNumber: formData.billNo,
         totalBill: parseFloat(formData.totalBill) || 0,
         givenAmount: parseFloat(formData.givenAmount) || 0,
         pendingAmount: parseFloat(pendingAmount) || 0
