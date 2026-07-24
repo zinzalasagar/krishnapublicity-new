@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import Lenis from "lenis";
 
-const plusJakarta = Plus_Jakarta_Sans({ 
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
 })
@@ -66,6 +66,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${plusJakarta.variable} ${playfairDisplay.variable}`}>
+      <head>
+        <link rel="icon" type="image/png" href="/icon.png" />
+      </head>
       <body className="font-sans">
         <Toaster position="top-right" reverseOrder={false} />
         <Preloader />
@@ -73,10 +76,10 @@ export default function RootLayout({
         <ThemeProvider>
           <ToastProvider>
             {children}
-            <a 
-              href="https://wa.me/917878161516" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://wa.me/917878161516"
+              target="_blank"
+              rel="noopener noreferrer"
               className="fixed bottom-8 left-8 z-50 flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl hover:scale-110 hover:shadow-[0_0_30px_rgba(34,197,94,0.6)] transition-all duration-300"
             >
               <FaWhatsapp className="w-8 h-8" />
