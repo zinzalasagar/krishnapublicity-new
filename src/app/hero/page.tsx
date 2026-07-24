@@ -69,7 +69,7 @@ export default function Hero() {
           className="mb-6 flex items-center gap-4 text-black/70"
         >
           <span className="w-10 h-[1px] bg-black/30"></span>
-          <span className="text-sm font-medium tracking-[0.2em] uppercase">Est. Since 2012</span>
+          <span className="text-sm font-medium tracking-[0.2em] uppercase">Est. Since 2016</span>
         </motion.div>
 
         <motion.h1
@@ -146,11 +146,10 @@ export default function Hero() {
                 key={idx}
                 onClick={() => setCurrentImage(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  idx === currentImage 
-                    ? "w-8 bg-white" 
+                className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentImage
+                    ? "w-8 bg-white"
                     : "w-2 bg-white/30 hover:bg-white/60"
-                }`}
+                  }`}
               />
             ))}
           </div>
