@@ -88,7 +88,13 @@ export default function ExpensePage() {
     if (dateValue.startDate && dateValue.endDate) {
       url += `?startDate=${dateValue.startDate}&endDate=${dateValue.endDate}`;
     }
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_self';
+    link.download = 'expense-report.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -183,7 +189,7 @@ export default function ExpensePage() {
                     <td className="px-6 py-2.5 text-green-600 font-bold">₹{entry.givenAmount || 0}</td>
                     <td className="px-6 py-2.5 text-red-600 font-bold">₹{entry.pendingAmount || 0}</td>
                     <td className="px-6 py-2.5 flex items-center gap-2">
-                      <a href={`${endPointApi.serverUrl}/api/${endPointApi.expenseBillPdf(entry._id)}`} target="_blank" rel="noreferrer" className="text-green-600 hover:text-green-800 p-2 hover:bg-green-50 rounded-lg transition-colors" title="Download Voucher">
+                      <a href={`${endPointApi.serverUrl}/api/${endPointApi.expenseBillPdf(entry._id)}`} target="_self" rel="noreferrer" className="text-green-600 hover:text-green-800 p-2 hover:bg-green-50 rounded-lg transition-colors" title="Download Voucher">
                         <Download className="w-4 h-4" />
                       </a>
                       <Link href={`/admin/expense/edit/${entry._id}`} className="text-blue-500 hover:text-blue-700 p-2 hover:bg-blue-50 rounded-lg transition-colors">

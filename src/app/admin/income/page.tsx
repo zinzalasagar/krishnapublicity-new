@@ -88,12 +88,24 @@ export default function IncomePage() {
     if (dateValue.startDate && dateValue.endDate) {
       url += `?startDate=${dateValue.startDate}&endDate=${dateValue.endDate}`;
     }
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_self'; // Important to not open a new tab if it navigates, but server should send attachment
+    link.download = 'income-report.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleDownloadBill = (id: string) => {
     const url = `${endPointApi.serverUrl}/api/${endPointApi.incomeBillPdf(id)}`;
-    window.open(url, '_blank');
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_self';
+    link.download = `bill-${id}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
