@@ -15,6 +15,8 @@ export default function EditIncomePage({ params }: { params: { id: string } }) {
     productName: '',
     details: '',
     customerName: '',
+    customerAddress: '',
+    customerMobile: '',
     date: '',
     totalBill: '',
     givenAmount: '',
@@ -30,6 +32,8 @@ export default function EditIncomePage({ params }: { params: { id: string } }) {
             productName: data.productName || '',
             details: data.details || '',
             customerName: data.customerName || '',
+            customerAddress: data.customerAddress || '',
+            customerMobile: data.customerMobile || '',
             date: data.date || '',
             totalBill: data.totalBill?.toString() || '',
             givenAmount: data.givenAmount?.toString() || '',
@@ -69,6 +73,8 @@ export default function EditIncomePage({ params }: { params: { id: string } }) {
     try {
       await apiService.put(`${endPointApi.income}/${params.id}`, {
         ...formData,
+        customerAddress: formData.customerAddress,
+        customerMobile: formData.customerMobile,
         totalBill: parseFloat(formData.totalBill) || 0,
         givenAmount: parseFloat(formData.givenAmount) || 0,
         pendingAmount: parseFloat(pendingAmount) || 0
@@ -121,6 +127,19 @@ export default function EditIncomePage({ params }: { params: { id: string } }) {
               <label className="block text-sm font-medium text-gray-700 mb-1">કસ્ટમરનું નામ (Customer Name)</label>
               <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1B2642]/20 outline-none" 
                 value={formData.customerName} onChange={e => setFormData({...formData, customerName: e.target.value})} required />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">સરનામું (Address)</label>
+              <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1B2642]/20 outline-none" 
+                value={formData.customerAddress} onChange={e => setFormData({...formData, customerAddress: e.target.value})} />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">મોબાઇલ નંબર (Mobile No)</label>
+              <input type="text" maxLength={10} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#1B2642]/20 outline-none" 
+                value={formData.customerMobile} onChange={e => {
+                  const val = e.target.value.replace(/\D/g, '');
+                  if (val.length <= 10) setFormData({...formData, customerMobile: val});
+                }} />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">તારીખ (Date)</label>

@@ -41,12 +41,7 @@ export default function AdminSettings() {
         image: '/serviceimage/graphicmain1.jpg'
       }
     },
-    bankDetails: {
-      bankName: 'AXIS BANK LTD',
-      accountNo: '922020000049646',
-      ifscCode: 'UTIB0001050',
-      branch: 'Magob, Surat.GJ.395010'
-    }
+    paymentQrCode: ''
   });
 
   useEffect(() => {
@@ -96,15 +91,6 @@ export default function AdminSettings() {
     }));
   };
 
-  const handleBankDetailsChange = (field: string, value: string) => {
-    setSettings(prev => ({
-      ...prev,
-      bankDetails: {
-        ...prev.bankDetails,
-        [field]: value
-      }
-    }));
-  };
 
   const handleServiceCardChange = (serviceKey: 'hoardings' | 'branding' | 'graphics', field: string, value: string) => {
     setSettings(prev => ({
@@ -279,61 +265,27 @@ export default function AdminSettings() {
             </div>
           </div>
 
-          {/* Bank Details */}
+          {/* Payment QR Code */}
           <div className="bg-white p-8 rounded-3xl shadow-[0_4px_24px_rgba(27,38,66,0.04)] border border-gray-100/50">
             <div className="flex items-center gap-4 mb-8 pb-6 border-b border-gray-50">
               <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                 </svg>
               </div>
               <div>
-                <h2 className="text-xl font-bold text-[#1B2642]">Bank Details</h2>
+                <h2 className="text-xl font-bold text-[#1B2642]">Payment Details</h2>
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Displayed on PDF Invoices</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Bank Name</label>
-                <input
-                  type="text"
-                  value={settings.bankDetails?.bankName || ''}
-                  onChange={(e) => handleBankDetailsChange('bankName', e.target.value)}
-                  className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
-                  placeholder="AXIS BANK LTD"
-                />
-              </div>
-              <div>
-                <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Account No</label>
-                <input
-                  type="text"
-                  value={settings.bankDetails?.accountNo || ''}
-                  onChange={(e) => handleBankDetailsChange('accountNo', e.target.value)}
-                  className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
-                  placeholder="922020000049646"
-                />
-              </div>
-              <div>
-                <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">IFSC Code</label>
-                <input
-                  type="text"
-                  value={settings.bankDetails?.ifscCode || ''}
-                  onChange={(e) => handleBankDetailsChange('ifscCode', e.target.value)}
-                  className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
-                  placeholder="UTIB0001050"
-                />
-              </div>
-              <div>
-                <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Branch / Address</label>
-                <input
-                  type="text"
-                  value={settings.bankDetails?.branch || ''}
-                  onChange={(e) => handleBankDetailsChange('branch', e.target.value)}
-                  className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
-                  placeholder="Magob, Surat.GJ.395010"
-                />
-              </div>
+            <div className="space-y-6">
+              <FileUpload
+                label="Payment QR Code"
+                value={settings.paymentQrCode || ''}
+                onChange={(url) => handleChange('paymentQrCode', url)}
+                helperText="Upload your UPI or Bank QR code (PNG, JPG)"
+              />
             </div>
           </div>
 

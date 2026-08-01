@@ -86,7 +86,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <nav className="flex-1 overflow-y-auto p-4 space-y-2 mt-4">
           <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-4 px-4">Management</div>
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = pathname === item.href || (item.href !== '/admin' && pathname.startsWith(`${item.href}/`));
             return (
               <Link 
                 key={item.name} 
@@ -103,7 +103,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           
           <div className="text-[10px] font-bold text-white/40 uppercase tracking-wider mb-4 px-4 mt-8">Accounting (હિસાબ)</div>
           {accountingItems.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <Link 
                 key={item.name} 
