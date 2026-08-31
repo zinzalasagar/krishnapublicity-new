@@ -114,6 +114,12 @@
 }
 
 @layer utilities {
+  /* Some browsers (older Chrome/Android WebViews, in-app browsers) only respect
+     -webkit-text-fill-color for clipped gradient text, and ignore `color: transparent`
+     on its own — without this, bg-clip-text gradients render as solid/invisible text. */
+  .bg-clip-text {
+    -webkit-text-fill-color: transparent;
+  }
   .glass {
     @apply bg-white/70 dark:bg-black/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
   }

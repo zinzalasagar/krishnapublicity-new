@@ -7,6 +7,14 @@ const getAuthToken = (): string | null => {
   return null;
 };
 
+// Multiple components (e.g. Navbar + Footer both fetching settings, or Hero +
+// FeatureSection both fetching home content) commonly mount at the same time
+// and issue identical GET requests. Coalescing concurrent identical requests
+// into a single network call avoids that redundant duplicate traffic without
+// caching results past their in-flight lifetime, so mutation-then-refetch
+// flows (e.g. admin lists after create/delete) always see fresh data.
+const inFlightGets = new Map<string, Promise<any>>();
+
 export const apiService = {
   /**
    * Constructs the full image URL handling relative upload paths and external HTTP links
@@ -26,28 +34,43 @@ export const apiService = {
   },
 
   /**
-   * Perform GET request
+   * Perform GET request. Concurrent calls to the same endpoint share one
+   * in-flight network request instead of each firing their own.
    */
   get: async <T = any>(endpoint: string): Promise<T> => {
-    const token = getAuthToken();
-    const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
-    };
-    if (token) {
-      headers['Authorization'] = `Bearer ${token}`;
+    const existing = inFlightGets.get(endpoint);
+    if (existing) {
+      return existing as Promise<T>;
     }
 
-    const response = await fetch(`${endPointApi.baseUrl}/${endpoint}`, {
-      method: 'GET',
-      headers,
-    });
+    const requestPromise = (async () => {
+      const token = getAuthToken();
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      };
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      throw new Error(errorData.message || `GET Request failed with status ${response.status}`);
+      const response = await fetch(`${endPointApi.baseUrl}/${endpoint}`, {
+        method: 'GET',
+        headers,
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `GET Request failed with status ${response.status}`);
+      }
+
+      return response.json();
+    })();
+
+    inFlightGets.set(endpoint, requestPromise);
+    try {
+      return await requestPromise;
+    } finally {
+      inFlightGets.delete(endpoint);
     }
-
-    return response.json();
   },
 
   /**

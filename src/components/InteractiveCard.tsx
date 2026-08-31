@@ -40,12 +40,9 @@ export default function InteractiveCard({ title, description, image, fallbackIma
               className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
             />
             
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a2332]/90 via-[#1a2332]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-            
             {/* Title */}
             <div className="absolute bottom-6 left-6 right-6 transform transition-transform duration-500 group-hover:-translate-y-2">
-              <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
+              <h3 className="text-2xl font-bold text-white mb-2" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.8)' }}>{title}</h3>
               <div className="h-1 w-12 bg-white/20 rounded-full overflow-hidden">
                 <motion.div 
                   className="h-full bg-white"

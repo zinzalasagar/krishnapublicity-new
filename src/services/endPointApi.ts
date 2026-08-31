@@ -35,6 +35,8 @@ export interface EndPointApi {
   printing: string;
   printingReportPdf: string;
   printingBillPdf: (id: string) => string;
+  hoardingBilling: string;
+  hoardingBillingPdf: (id: string) => string;
 }
 
 const endPointApi: EndPointApi = {
@@ -73,6 +75,8 @@ const endPointApi: EndPointApi = {
   printing: 'printing',
   printingReportPdf: 'printing/pdf/report',
   printingBillPdf: (id: string) => `printing/pdf/bill/${id}`,
+  hoardingBilling: 'hoarding-billing',
+  hoardingBillingPdf: (id: string) => `hoarding-billing/pdf/bill/${id}`,
 };
 
 export default endPointApi;

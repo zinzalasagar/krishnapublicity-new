@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, MapPin, Download, X } from "lucide-react";
+import { ArrowLeft, MapPin, Download, X, Check, Loader2 } from "lucide-react";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import Navbar from "@/app/Navbar/page";
@@ -14,6 +14,7 @@ import Footer from "@/app/Footer/page";
 import apiService from "@/services/apiService";
 import endPointApi from "@/services/endPointApi";
 import PageTransition from "@/components/PageTransition";
+import { generateHoardingsPdf } from "@/lib/hoardingPdf";
 
 interface Hoarding {
   id: string;
@@ -89,13 +90,8 @@ export default function CityHoardingsPage() {
   const router = useRouter();
   const [city, setCity] = useState<CityData | null>(null);
   const [selectedHoarding, setSelectedHoarding] = useState<Hoarding | null>(null);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
   useEffect(() => {
     if (params.id && typeof params.id === "string") {
@@ -113,8 +109,8 @@ export default function CityHoardingsPage() {
                   title: h.name,
                   image: apiService.getImageUrl(h.mainImage, '/hordingimage/bhavnagar1.jpg'),
                   description: h.description || h.location || '',
-                  currentPrice: 10000,
-                  previousPrice: 12000,
+                  currentPrice: h.currentPrice || 0,
+                  previousPrice: h.previousPrice || 0,
                   mapLink: h.location || 'https://maps.google.com'
                 }))
               });
@@ -157,6 +153,34 @@ export default function CityHoardingsPage() {
     }
   };
 
+  const toggleSelect = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const clearSelection = () => setSelectedIds(new Set());
+
+  const handleDownloadPdf = async () => {
+    if (!city) return;
+    const selected = city.hoardings.filter((h) => selectedIds.has(h.id));
+    if (selected.length === 0) return;
+
+    setIsGeneratingPdf(true);
+    try {
+      await generateHoardingsPdf(selected, city.name);
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      alert('Failed to generate PDF. Please try again.');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
+
   if (!city) {
     return (
       <div className="bg-theme-cream min-h-screen flex flex-col justify-between">
@@ -176,73 +200,66 @@ export default function CityHoardingsPage() {
     );
   }
 
-  // Calculate header scale based on scroll
-  const headerScale = Math.max(1 - scrollY / 1000, 0.85);
-  const headerOpacity = Math.max(1 - scrollY / 500, 0.4);
-
   return (
     <PageTransition className="bg-slate-50 min-h-screen flex flex-col justify-between font-sans selection:bg-theme-navy selection:text-white">
       <Navbar />
 
-      <div className="container mx-auto px-4 lg:px-8 pt-32 pb-24 max-w-[1400px] flex-grow">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          
-          {/* Sticky Left Section */}
-          <div className="w-full lg:w-1/3 lg:sticky lg:top-32 lg:h-[calc(100vh-10rem)] flex flex-col justify-between">
-            <div>
-              <Link href="/services/hoardings">
-                <Button
-                  variant="outline"
-                  className="mb-8 bg-white border-theme-navy/10 text-theme-navy hover:bg-theme-navy hover:text-white transition-all duration-300 rounded-xl group"
-                >
-                  <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" /> Back to Cities
-                </Button>
-              </Link>
-              
-              <motion.div
-                style={{ scale: headerScale, opacity: headerOpacity, transformOrigin: "left top" }}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              >
-                <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-theme-navy/10 text-theme-navy mb-6 bg-white shadow-sm">
-                  <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Location Hub</span>
-                </div>
-                <h1 className="text-5xl lg:text-7xl font-black text-theme-navy tracking-tight mb-6 leading-none">
-                  {city.name}
-                </h1>
-                <p className="text-lg text-theme-navy/70 leading-relaxed max-w-md">
-                  Explore premium hoarding locations in {city.name}. Dominate the local landscape with high-impact advertising spots curated for maximum visibility.
-                </p>
-              </motion.div>
-            </div>
-            
-            <motion.div 
-              className="hidden lg:block pb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              <div className="flex items-center gap-4 text-theme-navy/50 text-sm font-medium">
-                <div className="h-px bg-theme-navy/20 flex-grow" />
-                <span>{city.hoardings.length} Locations Available</span>
-              </div>
-            </motion.div>
-          </div>
+      <div className="container mx-auto px-4 lg:px-8 pt-36 pb-24 lg:pt-40 lg:pb-32 max-w-[1400px] flex-grow">
 
-          {/* Scrollable Right Section */}
-          <div className="w-full lg:w-2/3">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              <AnimatePresence>
-                {city.hoardings.map((hoarding, index) => (
+        {/* Top Header Section */}
+        <div className="mb-12 lg:mb-16">
+          <Link href="/services/hoardings">
+            <Button
+              variant="outline"
+              className="mb-10 bg-white border-theme-navy/10 text-theme-navy hover:bg-theme-navy hover:text-white transition-all duration-300 rounded-xl group"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" /> Back to Cities
+            </Button>
+          </Link>
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full border border-theme-navy/10 text-theme-navy mb-6 bg-white shadow-sm">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase">Location Hub</span>
+            </div>
+            <h1 className="text-5xl lg:text-7xl font-black text-theme-navy tracking-tight mb-6 leading-none">
+              {city.name}
+            </h1>
+            <p className="text-lg text-theme-navy/70 leading-relaxed max-w-2xl">
+              Explore premium hoarding locations in {city.name}. Dominate the local landscape with high-impact advertising spots curated for maximum visibility.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="flex items-center gap-4 text-theme-navy/50 text-sm font-medium">
+              <div className="h-px bg-theme-navy/20 flex-grow" />
+              <span>{city.hoardings.length} Locations Available</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Hoardings Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <AnimatePresence>
+            {city.hoardings.map((hoarding, index) => (
                   <motion.div
                     key={hoarding.id}
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <div 
-                      className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-theme-navy/5 cursor-pointer h-full flex flex-col"
+                    <div
+                      className={`group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border cursor-pointer h-full flex flex-col ${
+                        selectedIds.has(hoarding.id) ? 'border-theme-navy ring-2 ring-theme-navy' : 'border-theme-navy/5'
+                      }`}
                       onClick={() => setSelectedHoarding(hoarding)}
                     >
                       <div className="relative h-72 w-full overflow-hidden">
@@ -253,16 +270,23 @@ export default function CityHoardingsPage() {
                           className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1a2332]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                        
-                        <a
-                          href={hoarding.mapLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="absolute top-4 right-4 bg-white/20 backdrop-blur-md rounded-full p-3 shadow-lg hover:bg-white hover:text-theme-navy text-white transition-all duration-300"
-                          onClick={(e) => e.stopPropagation()}
+
+                        <button
+                          type="button"
+                          onClick={(e) => toggleSelect(hoarding.id, e)}
+                          aria-label={selectedIds.has(hoarding.id) ? 'Deselect hoarding' : 'Select hoarding'}
+                          className={`absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center shadow-lg backdrop-blur-md transition-all duration-300 ${
+                            selectedIds.has(hoarding.id)
+                              ? 'bg-theme-navy text-white'
+                              : 'bg-white/20 text-white hover:bg-white/40'
+                          }`}
                         >
-                          <MapPin className="h-5 w-5" />
-                        </a>
+                          {selectedIds.has(hoarding.id) ? (
+                            <Check className="h-5 w-5" />
+                          ) : (
+                            <span className="w-4 h-4 rounded-full border-2 border-white" />
+                          )}
+                        </button>
 
                         <div className="absolute bottom-6 left-6 right-6 transform transition-transform duration-500 group-hover:-translate-y-2">
                           <h3 className="font-black text-2xl text-white mb-2">{hoarding.title}</h3>
@@ -280,16 +304,20 @@ export default function CityHoardingsPage() {
                         <div className="flex items-center justify-between border-t border-slate-100 pt-4">
                           <div>
                             <p className="text-[10px] uppercase tracking-wider text-theme-navy/50 font-bold mb-1">Estimated Price</p>
-                            <div className="flex items-center gap-3">
-                              <p className="text-xl text-theme-navy font-black tracking-tight">
-                                ₹{hoarding.currentPrice.toLocaleString()}
-                              </p>
-                              {hoarding.previousPrice > hoarding.currentPrice && (
-                                <p className="text-sm text-theme-navy/40 line-through font-medium">
-                                  ₹{hoarding.previousPrice.toLocaleString()}
+                            {hoarding.currentPrice > 0 ? (
+                              <div className="flex items-center gap-3">
+                                <p className="text-xl text-theme-navy font-black tracking-tight">
+                                  ₹{hoarding.currentPrice.toLocaleString()}
                                 </p>
-                              )}
-                            </div>
+                                {hoarding.previousPrice > hoarding.currentPrice && (
+                                  <p className="text-sm text-theme-navy/40 line-through font-medium">
+                                    ₹{hoarding.previousPrice.toLocaleString()}
+                                  </p>
+                                )}
+                              </div>
+                            ) : (
+                              <p className="text-lg text-theme-navy font-black tracking-tight">Contact for Price</p>
+                            )}
                           </div>
                           <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-theme-navy group-hover:text-white transition-colors duration-300 text-theme-navy">
                             <ArrowLeft className="w-4 h-4 rotate-135" style={{ transform: "rotate(135deg)" }} />
@@ -299,11 +327,46 @@ export default function CityHoardingsPage() {
                     </div>
                   </motion.div>
                 ))}
-              </AnimatePresence>
-            </div>
-          </div>
-
+          </AnimatePresence>
         </div>
+
+        {/* Selection Action Bar */}
+        <AnimatePresence>
+          {selectedIds.size > 0 && (
+            <motion.div
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[90] bg-theme-navy text-white rounded-2xl shadow-2xl px-6 py-4 flex items-center gap-4 md:gap-6"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <span className="text-sm font-bold whitespace-nowrap">
+                {selectedIds.size} Hoarding{selectedIds.size > 1 ? 's' : ''} Selected
+              </span>
+              <button
+                onClick={clearSelection}
+                className="text-xs text-white/60 hover:text-white underline whitespace-nowrap"
+              >
+                Clear
+              </button>
+              <Button
+                onClick={handleDownloadPdf}
+                disabled={isGeneratingPdf}
+                className="bg-white text-theme-navy hover:bg-white/90 rounded-xl h-10 px-5 font-bold whitespace-nowrap disabled:opacity-70"
+              >
+                {isGeneratingPdf ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Generating...
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 mr-2" /> Download PDF
+                  </>
+                )}
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Modal for Hoarding Details */}
         <AnimatePresence>
@@ -354,16 +417,20 @@ export default function CityHoardingsPage() {
                   
                   <div className="bg-slate-50 p-6 rounded-2xl mb-8 border border-slate-100">
                     <p className="text-[10px] uppercase tracking-wider text-theme-navy/50 font-bold mb-2">Investment</p>
-                    <div className="flex items-end gap-4">
-                      <p className="text-4xl text-theme-navy font-black tracking-tighter">
-                        ₹{selectedHoarding.currentPrice.toLocaleString()}
-                      </p>
-                      {selectedHoarding.previousPrice > selectedHoarding.currentPrice && (
-                        <p className="text-lg text-theme-navy/40 line-through font-medium mb-1">
-                          ₹{selectedHoarding.previousPrice.toLocaleString()}
+                    {selectedHoarding.currentPrice > 0 ? (
+                      <div className="flex items-end gap-4">
+                        <p className="text-4xl text-theme-navy font-black tracking-tighter">
+                          ₹{selectedHoarding.currentPrice.toLocaleString()}
                         </p>
-                      )}
-                    </div>
+                        {selectedHoarding.previousPrice > selectedHoarding.currentPrice && (
+                          <p className="text-lg text-theme-navy/40 line-through font-medium mb-1">
+                            ₹{selectedHoarding.previousPrice.toLocaleString()}
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="text-2xl text-theme-navy font-black tracking-tighter">Contact for Price</p>
+                    )}
                   </div>
 
                   <div className="flex gap-4 flex-col sm:flex-row">

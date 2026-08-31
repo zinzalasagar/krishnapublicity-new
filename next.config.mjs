@@ -12,6 +12,11 @@ const nextConfig = {
         port: '5000'
       },
       {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '8003'
+      },
+      {
         protocol: 'https',
         hostname: 'krishnapublicity-backend.onrender.com',
       },

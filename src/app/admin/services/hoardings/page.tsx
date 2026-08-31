@@ -14,6 +14,8 @@ interface Hoarding {
   location: string;
   mainImage: string;
   description: string;
+  currentPrice?: number;
+  previousPrice?: number;
 }
 
 interface City {
@@ -42,11 +44,14 @@ export default function AdminHoardings() {
   // Modal State for Hoarding
   const [isHoardingModalOpen, setIsHoardingModalOpen] = useState(false);
   const [selectedCityId, setSelectedCityId] = useState<string | null>(null);
+  const [editingHoardingIndex, setEditingHoardingIndex] = useState<number | null>(null);
   const [hoardingForm, setHoardingForm] = useState<Hoarding>({
     name: '',
     location: '',
     mainImage: '',
-    description: ''
+    description: '',
+    currentPrice: 0,
+    previousPrice: 0
   });
 
   // Delete confirm state
@@ -164,9 +169,22 @@ export default function AdminHoardings() {
     setDeletingHoardingIndex(null);
   };
 
-  const handleOpenHoardingModal = (cityId: string) => {
+  const handleOpenHoardingModal = (cityId: string, hoarding?: Hoarding, index?: number) => {
     setSelectedCityId(cityId);
-    setHoardingForm({ name: '', location: '', mainImage: '', description: '' });
+    if (hoarding) {
+      setEditingHoardingIndex(index ?? null);
+      setHoardingForm({
+        name: hoarding.name,
+        location: hoarding.location,
+        mainImage: hoarding.mainImage,
+        description: hoarding.description,
+        currentPrice: hoarding.currentPrice || 0,
+        previousPrice: hoarding.previousPrice || 0
+      });
+    } else {
+      setEditingHoardingIndex(null);
+      setHoardingForm({ name: '', location: '', mainImage: '', description: '', currentPrice: 0, previousPrice: 0 });
+    }
     setIsHoardingModalOpen(true);
   };
 
@@ -179,18 +197,22 @@ export default function AdminHoardings() {
     const city = cities.find(c => c._id === selectedCityId);
     if (!city) return;
 
-    const toastId = toast.loading('Adding hoarding location...');
-    const updatedHoardings = [...(city.hoardings || []), hoardingForm];
+    const isEditing = editingHoardingIndex !== null;
+    const toastId = toast.loading(isEditing ? 'Updating hoarding location...' : 'Adding hoarding location...');
+    const updatedHoardings = isEditing
+      ? city.hoardings.map((h, idx) => (idx === editingHoardingIndex ? hoardingForm : h))
+      : [...(city.hoardings || []), hoardingForm];
 
     try {
       await apiService.put(`${endPointApi.hoardings}/${selectedCityId}`, {
         hoardings: updatedHoardings
       });
-      toast.success('Hoarding location added!', { id: toastId });
+      toast.success(isEditing ? 'Hoarding location updated!' : 'Hoarding location added!', { id: toastId });
       setIsHoardingModalOpen(false);
+      setEditingHoardingIndex(null);
       fetchCities();
     } catch (error: any) {
-      toast.error(error.message || 'Failed to add hoarding', { id: toastId });
+      toast.error(error.message || 'Failed to save hoarding', { id: toastId });
     }
   };
 
@@ -276,13 +298,29 @@ export default function AdminHoardings() {
                         <h4 className="font-bold text-sm text-[#1B2642]">{hoarding.name}</h4>
                         <p className="text-xs text-gray-500 font-medium">{hoarding.location}</p>
                         <p className="text-[11px] text-gray-400 leading-snug line-clamp-2">{hoarding.description}</p>
+                        <div className="flex items-center gap-2 pt-1">
+                          <span className="text-sm font-bold text-[#1B2642]">
+                            {hoarding.currentPrice ? `₹${hoarding.currentPrice.toLocaleString()}` : 'No price set'}
+                          </span>
+                          {!!hoarding.previousPrice && !!hoarding.currentPrice && hoarding.previousPrice > hoarding.currentPrice && (
+                            <span className="text-xs text-gray-400 line-through">₹{hoarding.previousPrice.toLocaleString()}</span>
+                          )}
+                        </div>
                       </div>
-                      <button
-                        onClick={() => requestDeleteHoarding(city._id!, idx)}
-                        className="text-xs text-rose-500 font-bold hover:underline self-end"
-                      >
-                        Remove Hoarding
-                      </button>
+                      <div className="flex items-center justify-end gap-4">
+                        <button
+                          onClick={() => handleOpenHoardingModal(city._id!, hoarding, idx)}
+                          className="text-xs text-[#1B2642] font-bold hover:underline"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          onClick={() => requestDeleteHoarding(city._id!, idx)}
+                          className="text-xs text-rose-500 font-bold hover:underline"
+                        >
+                          Remove Hoarding
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -334,12 +372,16 @@ export default function AdminHoardings() {
       </Modal>
 
       {/* Hoarding Modal */}
-      <Modal isOpen={isHoardingModalOpen} onClose={() => setIsHoardingModalOpen(false)} title="Add Hoarding Location">
+      <Modal
+        isOpen={isHoardingModalOpen}
+        onClose={() => { setIsHoardingModalOpen(false); setEditingHoardingIndex(null); }}
+        title={editingHoardingIndex !== null ? 'Edit Hoarding Location' : 'Add Hoarding Location'}
+      >
         <div className="space-y-4 pt-2">
           <div className="flex justify-between items-center pb-2 border-b border-gray-100 mb-4">
             <span className="text-xs text-gray-400">Save changes here</span>
             <button onClick={handleSaveHoarding} className="px-4 py-1.5 bg-[#1B2642] text-white text-[11px] font-bold rounded-xl hover:bg-[#1B2642]/90 transition-colors">
-              Add Hoarding
+              {editingHoardingIndex !== null ? 'Save Changes' : 'Add Hoarding'}
             </button>
           </div>
 
@@ -377,9 +419,38 @@ export default function AdminHoardings() {
               placeholder="Details about size, traffic, and visibility..."
             />
           </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-gray-500 mb-1">Estimated Price (₹)</label>
+              <input
+                type="number"
+                min={0}
+                value={hoardingForm.currentPrice ?? 0}
+                onChange={(e) => setHoardingForm({ ...hoardingForm, currentPrice: Number(e.target.value) })}
+                className="w-full border border-gray-200 rounded-xl p-3 text-sm"
+                placeholder="e.g. 10000"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-gray-500 mb-1">Original Price (₹, optional)</label>
+              <input
+                type="number"
+                min={0}
+                value={hoardingForm.previousPrice ?? 0}
+                onChange={(e) => setHoardingForm({ ...hoardingForm, previousPrice: Number(e.target.value) })}
+                className="w-full border border-gray-200 rounded-xl p-3 text-sm"
+                placeholder="e.g. 12000"
+              />
+            </div>
+          </div>
+          <p className="text-[11px] text-gray-400 -mt-2">
+            Set &quot;Original Price&quot; higher than the estimated price to show it struck through as a discount. Leave 0 to hide it.
+          </p>
           <div className="pt-4 flex justify-end gap-3 border-t border-gray-100">
-            <button onClick={() => setIsHoardingModalOpen(false)} className="px-5 py-2.5 text-xs font-bold text-gray-500">Cancel</button>
-            <button onClick={handleSaveHoarding} className="px-6 py-2.5 bg-[#1B2642] text-white text-xs font-bold rounded-xl">Add Hoarding</button>
+            <button onClick={() => { setIsHoardingModalOpen(false); setEditingHoardingIndex(null); }} className="px-5 py-2.5 text-xs font-bold text-gray-500">Cancel</button>
+            <button onClick={handleSaveHoarding} className="px-6 py-2.5 bg-[#1B2642] text-white text-xs font-bold rounded-xl">
+              {editingHoardingIndex !== null ? 'Save Changes' : 'Add Hoarding'}
+            </button>
           </div>
         </div>
       </Modal>

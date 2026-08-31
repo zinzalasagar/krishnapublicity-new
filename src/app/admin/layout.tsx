@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LayoutDashboard, Home as HomeIcon, Info, LogOut, Menu, X, Users, Settings as SettingsIcon, MapPin, Sparkles, Palette, Banknote, Wallet, Printer } from 'lucide-react';
+import { LayoutDashboard, Home as HomeIcon, Info, LogOut, Menu, X, Users, Settings as SettingsIcon, MapPin, Sparkles, Palette, Banknote, Wallet, Printer, Receipt } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -64,6 +64,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'આવક (Income)', href: '/admin/income', icon: Banknote },
     { name: 'જાવક (Expense)', href: '/admin/expense', icon: Wallet },
     { name: 'પ્રિન્ટીંગ (Printing)', href: '/admin/printing', icon: Printer },
+    { name: 'Hoarding Billing', href: '/admin/hoarding-billing', icon: Receipt },
   ];
 
   return (
@@ -155,7 +156,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 : pathname === '/admin/settings' ? 'Site Settings & Logo' 
                 : pathname === '/admin/income' ? 'Income (આવક)' 
                 : pathname === '/admin/expense' ? 'Expense (જાવક)' 
-                : pathname === '/admin/printing' ? 'Printing (પ્રિન્ટીંગ)' 
+                : pathname === '/admin/printing' ? 'Printing (પ્રિન્ટીંગ)'
+                : pathname.startsWith('/admin/hoarding-billing') ? 'Hoarding Billing'
                 : pathname === '/admin/profile' ? 'Admin Profile'
                 : 'Partners Gallery'}
              </span>

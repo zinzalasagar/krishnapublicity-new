@@ -17,6 +17,11 @@ export default function AdminSettings() {
     email: 'krishnapublicity2016@gmail.com',
     phone: '+91 7878161516',
     altPhone: '+91 78740 51516',
+    gstin: '',
+    bankName: '',
+    bankAccountNumber: '',
+    bankAccountHolder: '',
+    bankIfscCode: '',
     address: 'C-107, First Floor, Ambikapark Apt, Opp. HDFC Bank, Nr. Laxmi Tiles, Punagam, Surat, Gujarat, India',
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1241.3165544824567!2d72.86615550177982!3d21.202212736660353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f7d045e2bc1%3A0x6e0d37977ac07b2c!2sKRISHNA%20PUBLICITY!5e0!3m2!1sen!2sin!4v1730006460466!5m2!1sen!2sin',
     socialLinks: {
@@ -244,6 +249,17 @@ export default function AdminSettings() {
               </div>
 
               <div>
+                <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">GSTIN (used on Tax Invoices)</label>
+                <input
+                  type="text"
+                  value={settings.gstin || ''}
+                  onChange={(e) => handleChange('gstin', e.target.value)}
+                  className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
+                  placeholder="24XXXXX0000X1ZX"
+                />
+              </div>
+
+              <div>
                 <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Office Location Address</label>
                 <textarea
                   value={settings.address || ''}
@@ -286,6 +302,49 @@ export default function AdminSettings() {
                 onChange={(url) => handleChange('paymentQrCode', url)}
                 helperText="Upload your UPI or Bank QR code (PNG, JPG)"
               />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Bank Name</label>
+                  <input
+                    type="text"
+                    value={settings.bankName || ''}
+                    onChange={(e) => handleChange('bankName', e.target.value)}
+                    className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
+                    placeholder="Bank Of Baroda - Tana"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Account Holder Name</label>
+                  <input
+                    type="text"
+                    value={settings.bankAccountHolder || ''}
+                    onChange={(e) => handleChange('bankAccountHolder', e.target.value)}
+                    className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
+                    placeholder="Sanjay Vashrambhai Rathod"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">Account Number</label>
+                  <input
+                    type="text"
+                    value={settings.bankAccountNumber || ''}
+                    onChange={(e) => handleChange('bankAccountNumber', e.target.value)}
+                    className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
+                    placeholder="78170100017064"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-wider">IFSC Code</label>
+                  <input
+                    type="text"
+                    value={settings.bankIfscCode || ''}
+                    onChange={(e) => handleChange('bankIfscCode', e.target.value.toUpperCase())}
+                    className="w-full border border-gray-200 bg-white rounded-xl p-3.5 text-sm font-medium focus:border-[#1B2642] focus:ring-1 focus:ring-[#1B2642] text-[#1B2642]"
+                    placeholder="BARB0DBTANA"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
